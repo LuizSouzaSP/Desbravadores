@@ -85,3 +85,43 @@ section .conteiner-inicial{ /* conteiner do video */
     font-size: 90px;
     color:brown /* troca a cor do texto para marrom */
 }
+.gradiente {
+    position: relative;
+    width: 100%;
+    height: 15vh;
+    top: 35vh;
+
+    background: linear-gradient(to bottom, transparent,#0A3880);
+}
+/* O QUE É */
+.oque {
+    background-image: url('../assets/imgs/background-image1.png');
+    width: 99.2vw;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+
+}
+.oque h1{
+    margin-top: 0;
+    padding-top: 20vh;
+    padding-left: 5vw;
+    font-size: 60px;
+    color: #FDD500;
+}
+
+.oque p{
+    width: 40%;
+    font-size: 24px;
+    color: aliceblue;
+}
+.o_que_text{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.o_que_text img{
+    padding-left: 9vw;
+    width: 30vw;
+}
