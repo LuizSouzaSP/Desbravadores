@@ -38,7 +38,7 @@ a:hover{
 .nav-bar .login a{
     justify-content: center;
 }
-.nav-bar .login a:hover{
+.nav-bar .login:hover a{
     width: 1vw;
     background-color: black;
     color: aliceblue;
@@ -112,7 +112,7 @@ section .conteiner-inicial{ /* conteiner do video */
 }
 
 .oque p{
-    width: 40%;
+    width: 35%;
     font-size: 24px;
     color: aliceblue;
 }
@@ -123,5 +123,320 @@ section .conteiner-inicial{ /* conteiner do video */
 }
 .o_que_text img{
     padding-left: 9vw;
-    width: 30vw;
+    width: 35vw;
+}
+
+/* CAMPORI */
+.campori {
+    background-image: url('../assets/imgs/background-image2.png');
+    width: 99.2vw;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+
+}
+.campori h1{
+    margin-top: 0;
+    padding-top: 12vh;
+    padding-left: 5vw;
+    font-size: 60px;
+    color: #FDD500;
+}
+
+.campori p{
+    width: 35%;
+    font-size: 24px;
+    color: aliceblue;
+    padding-left: 9vw;
+}
+.campori_text{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.campori_text img{
+    width: 35vw;
+}
+
+/* Camporis */
+
+.campori .titulo2 {
+    display: flex;
+    justify-content: center;
+}
+.camporis {
+    width: 99.2vw;
+    height: 100vh;
+    background-color: #0A3880;
+    display: flex;
+    flex-direction: column;
+}
+.brasioes_camporis img{
+    width: 100%;
+    height: 20%;
+}
+.camporis .gradiente {
+    position: relative;
+    width: 100%;
+    height: 15vh;
+    top: 49.1vh;
+
+    background: linear-gradient(to bottom, transparent,#FDD500);
+}
+
+/* IDEAIS */
+
+.ideais {
+    background-color: #FDD500;
+    width: 99.2vw;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+
+}
+.ideais h1{
+    width: 100%;
+    margin-top: 0;
+    padding-top: 12vh;
+    font-size: 60px;
+    color: aliceblue;
+    display: flex;
+    justify-content: center;
+}
+/* voto */
+.ideais .box-voto p{
+    transition: 0.2s ease-in-out;
+    opacity: 0;
+}
+.box-ideais {
+    display: flex;
+    flex-direction: column;
+}
+.box-ideais .conteiner1 {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.box-voto {
+    width: 10vw;
+    height: 25vh;
+    border-radius: 10px;
+    background-color: red;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    transition: 0.2s ease-in-out;
+}
+.box-voto img{
+    width: 10vw;
+    height: 15vh;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+.ideais .box-voto:hover{
+    width: 10vw;
+    height: 40vh;
+    background-color: red;
+    transition: 0.2s ease-in-out;
+}
+.ideais p{
+    width: 10vw;
+}
+.ideais .box-voto:hover p {
+    opacity: 100%;
+    transform: translateY(20px);
+}
+.ideais .box-voto:hover h2 {
+    right: 5vw;
+}
+/* lei */
+.ideais .box-lei p{
+    transition: 0.2s ease-in-out;
+    opacity: 0;
+}
+
+.box-lei {
+    width: 10vw;
+    height: 25vh;
+    border-radius: 10px;
+    background-color: red;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    transition: 0.2s ease-in-out;
+}
+.box-lei img{
+    width: 10vw;
+    height: 15vh;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+.ideais .box-lei:hover{
+    width: 10vw;
+    height: 57vh;
+    background-color: red;
+    transition: 0.2s ease-in-out;
+}
+.ideais .box-lei:hover p {
+    opacity: 100%;
+    transform: translateY(20px);
+}
+.ideais .box-lei:hover h2 {
+    right: 5vw;
+}
+/* alvo */
+.ideais .box-alvo p{
+    transition: 0.2s ease-in-out;
+    opacity: 0;
+}
+
+.box-alvo {
+    width: 10vw;
+    height: 25vh;
+    border-radius: 10px;
+    background-color: red;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    transition: 0.2s ease-in-out;
+}
+.box-alvo img{
+    width: 10vw;
+    height: 15vh;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+.ideais .box-alvo:hover{
+    width: 10vw;
+    height: 35vh;
+    background-color: red;
+    transition: 0.2s ease-in-out;
+}
+.ideais .box-alvo:hover p {
+    opacity: 100%;
+    transform: translateY(20px);
+}
+.ideais .box-alvo:hover h2 {
+    right: 5vw;
+}
+/* conteiner2 ideais -- lema */
+.conteiner2 {
+    padding-top: 10vh;
+}
+.ideais .box-lema p{
+    transition: 0.2s ease-in-out;
+    opacity: 0;
+}
+.box-ideais .conteiner2 {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    padding-left: 0.8vw;
+}
+
+.box-lema {
+    width: 10vw;
+    height: 25vh;
+    border-radius: 10px;
+    background-color: red;
+    
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    transition: 0.2s ease-in-out;
+    position: relative;
+    right: 0.5vw;
+}
+.box-lema img{
+    width: 10vw;
+    height: 15vh;
+    
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+.ideais .box-lema:hover{
+    width: 10vw;
+    height: 32vh;
+    background-color: red;
+    transition: 0.2s ease-in-out;
+}
+.ideais .box-lema:hover p {
+    opacity: 100%;
+    transform: translateY(20px);
+}
+.ideais .box-lema:hover h2 {
+    right: 5vw;
+}
+/* objetivo */
+.ideais .box-objetivo p{
+    transition: 0.2s ease-in-out;
+    opacity: 0;
+}
+
+.box-objetivo {
+    width: 10vw;
+    position: relative;
+    right: 0.5vw;
+    height: 25vh;
+    border-radius: 10px;
+    background-color: red;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    transition: 0.2s ease-in-out;
+}
+.box-objetivo img{
+    width: 10vw;
+    height: 15vh;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+.ideais .box-objetivo:hover{
+    width: 10vw;
+    height: 32vh;
+    background-color: red;
+    transition: 0.2s ease-in-out;
+}
+.ideais .box-objetivo:hover p {
+    opacity: 100%;
+    transform: translateY(20px);
+}
+.ideais .box-objetivo:hover h2 {
+    right: 5vw;
+}
+
+/* voto de fidlelidade a biblia */
+
+.ideais .box-fidelidade p{
+    transition: 0.2s ease-in-out;
+    opacity: 0;
+}
+
+.box-fidelidade {
+    width: 10vw;
+
+    height: 25vh;
+    border-radius: 10px;
+    background-color: red;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    transition: 0.2s ease-in-out;
+}
+.box-fidelidade img{
+    width: 10vw;
+    height: 15vh;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+.ideais .box-fidelidade:hover{
+    width: 10vw;
+    height: 49vh;
+    background-color: red;
+    transition: 0.2s ease-in-out;
+}
+.ideais .box-fidelidade:hover p {
+    opacity: 100%;
+    transform: translateY(20px);
+}
+.ideais .box-fidelidade:hover h2 {
+    right: 5vw;
 }
