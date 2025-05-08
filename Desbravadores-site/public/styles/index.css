@@ -28,7 +28,7 @@ body{
     opacity: 100%;
     transition: 0.2s ease-in-out;
 }
-a:hover{
+.nav-bar a:hover{
     font-size: 20px;
 }
 .nav-bar img{
@@ -142,6 +142,9 @@ section .conteiner-inicial{ /* conteiner do video */
     padding-left: 5vw;
     font-size: 60px;
     color: #FDD500;
+    display: flex;
+    width: 85%;
+    justify-content: flex-end;
 }
 
 .campori p{
@@ -161,7 +164,12 @@ section .conteiner-inicial{ /* conteiner do video */
 }
 
 /* Camporis */
-
+.campori h2{
+    margin-top: 0;
+    padding-top: 12vh;
+    font-size: 60px;
+    color: #FDD500;
+}
 .campori .titulo2 {
     display: flex;
     justify-content: center;
@@ -173,15 +181,20 @@ section .conteiner-inicial{ /* conteiner do video */
     display: flex;
     flex-direction: column;
 }
-.brasioes_camporis img{
-    width: 100%;
-    height: 20%;
+.brasoes_camporis {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    justify-content: center;
+}
+.brasoes_camporis img{
+    width: 40vw;
 }
 .camporis .gradiente {
     position: relative;
     width: 100%;
-    height: 15vh;
-    top: 49.1vh;
+    height: 25vh;
+    top: 0.1vh;
 
     background: linear-gradient(to bottom, transparent,#FDD500);
 }
@@ -414,7 +427,7 @@ section .conteiner-inicial{ /* conteiner do video */
 .box-fidelidade {
     width: 10vw;
 
-    height: 25vh;
+    height: 30vh;
     border-radius: 10px;
     background-color: red;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
@@ -439,4 +452,41 @@ section .conteiner-inicial{ /* conteiner do video */
 }
 .ideais .box-fidelidade:hover h2 {
     right: 5vw;
+}
+/* FOOTER */
+
+.footer {
+    height: 30vh;
+    width: 100%;
+    background-color: #0A3880;
+    display: flex;
+
+}
+.footer .conteiner {
+    display: flex;
+    margin-left: 40px;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    color: aliceblue;
+}
+.footer img{
+    width: 3vw;
+}
+.box-nav-ul {
+    list-style-type: none;
+}
+
+.box-nav {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    margin-left: 60vw;
+}
+
+.footer .box-nav a {
+    text-decoration: none;
+    color: aliceblue;
+    padding-top: 50px;
+
 }
