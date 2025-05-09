@@ -45,13 +45,12 @@ body{
     border-radius: 5px;
     transition: 0.2s;
 }
-
 .conteiner-conteudo{
     width: 100%;
     height: 100vh;
     position: relative;
     background-color: black;
-    background-image:  url('../assets/imgs/primeiro-campori-dbv.png');
+    background-image:  url('');
 }
 .conteiner-conteudo p{
     position: relative; 
@@ -79,9 +78,9 @@ body{
 
     background: linear-gradient(to bottom, transparent,#0A3880);
 }
-/* SURGIMENTO */
 
-.surgimento {
+/* QUEM SOU EU */
+.quem {
     background-image: url('../assets/imgs/background-image1.png');
     width: 99.2vw;
     height: 100vh;
@@ -90,7 +89,7 @@ body{
     flex-direction: column;
 
 }
-.surgimento h1{
+.quem h1{
     margin-top: 0;
     padding-top: 20vh;
     padding-left: 5vw;
@@ -98,24 +97,24 @@ body{
     color: #FDD500;
 }
 
-.surgimento p{
+.quem p{
     width: 35%;
     font-size: 24px;
     color: aliceblue;
 }
-.surgimento_text{
+.quem_text{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
 }
-.surgimento_text img{
+.quem_text img{
     padding-left: 9vw;
     width: 35vw;
 }
 
-/* SURGIMENTO BRASIL */
+/* Por que o clube de Desbravadores? */
 
-.surgimento-brasil {
+.clube-desbravadores {
     background-image: url('../assets/imgs/background-image2.png');
     width: 99.2vw;
     height: 100vh;
@@ -124,7 +123,7 @@ body{
     flex-direction: column;
 
 }
-.surgimento-brasil h1{
+.clube-desbravadores h1{
     margin-top: 0;
     padding-top: 12vh;
     padding-left: 5vw;
@@ -135,101 +134,55 @@ body{
     justify-content: flex-end;
 }
 
-.surgimento-brasil p{
+.clube-desbravadores p{
     width: 35%;
     font-size: 24px;
     color: aliceblue;
     padding-left: 9vw;
 }
-.surgimento-brasil_text{
+.clube-desbravadores_text{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
 }
 
-.surgimento-brasil_text img{
+.clube-desbravadores_text img{
     width: 35vw;
 }
 
-/* LINHA DO TEMPO */
-
-.surgimento-brasil h2{
-    margin-top: 0;
-    padding-top: 12vh;
-    font-size: 60px;
-    color: #FDD500;
-}
-.surgimento-brasil .titulo2 {
-    display: flex;
-    justify-content: center;
-}
-.linha-tempo {
+/* CLUBES */
+.clubes {
+    background-image: url('../assets/imgs/background-image1.png');
     width: 99.2vw;
     height: 100vh;
-    background-color: #0A3880;
+    margin: 0;
     display: flex;
     flex-direction: column;
+
 }
-
-.linha-tempo .gradiente {
-    position: relative;
-    width: 100%;
-    height: 25vh;
-    top: 0.1vh;
-
-    background: linear-gradient(to bottom, transparent,#FDD500);
-}
-.anos {
-    height: 100%;
-
+.clubes h1{
+    margin-top: 0;
+    padding-top: 12vh;
+    padding-left: 5vw;
+    font-size: 60px;
+    color: #FDD500;
     display: flex;
-    justify-content: space-evenly;
-    align-items: center;
+    width: 85%;
+    justify-content: flex-end;
 }
 
-.anos .conteudo {
-    width: 50%;
-    display: flex;
-    
-    overflow: auto;
+.clubes p{
+    width: 35%;
+    font-size: 24px;
+    color: aliceblue;
+    padding-left: 9vw;
 }
-.anos .conteudo .box{
-    margin-right: 10%;
+
+
+.clubes img{
+    width: 35vw;
 }
-.anos .conteudo .box2{
-    margin-right: 15%;
-}
-.anos .conteudo .box3{
-    margin-right: 15%;
-}
-.anos .conteudo .box4{
-    margin-right: 15%;
-}
-.anos .conteudo .box5{
-    margin-right: 15%;
-}
-.anos .conteudo .box6{
-    margin-right: 15%;
-}
-.anos .conteudo .box7{
-    margin-right: 15%;
-}
-.anos .conteudo .box8{
-    margin-right: 15%;
-}
-.anos .conteudo .box9{
-    margin-right: 15%;
-}
-.anos .conteudo .box10{
-    margin-right: 15%;
-}
-.anos .conteudo .box p{
-    opacity: 0;
-    transition: 0.3s ease-in-out;
-}
-.anos .conteudo .box:hover p{
-    opacity: 100%;
-}
+
 /* FOOTER */
 
 .footer {

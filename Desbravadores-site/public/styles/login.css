@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Cal+Sans&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+body{
+    margin: 0;
+    font-family: "Cal Sans", 'Arial';
+}
+.box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.box .campos{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 23%;
+    height: 48vh;
+    background-color: rgb(119, 119, 119, 0.3);
+    border-radius: 10px;
+}
+.box .campos h1{
+    margin-top: 40px;
+}
+.box .campos p{
+    display: flex;
+}
+button {
+    margin-top: 10px;
+    width: 7vw;
+    height: 4vh;
+    border: 0;
+    border-radius: 6px;
+}
+input {
+    height: 4vh;
+    border-radius: 6px;
+    border: 0;
+}
+.cadastro{
+    display: flex;
+    align-items: center;
+}
