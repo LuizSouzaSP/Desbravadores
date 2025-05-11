@@ -117,7 +117,7 @@ body{
 .clube-desbravadores {
     background-image: url('../assets/imgs/background-image2.png');
     width: 99.2vw;
-    height: 100vh;
+    height: 70vh;
     margin: 0;
     display: flex;
     flex-direction: column;
@@ -126,19 +126,18 @@ body{
 .clube-desbravadores h1{
     margin-top: 0;
     padding-top: 12vh;
-    padding-left: 5vw;
     font-size: 60px;
     color: #FDD500;
     display: flex;
-    width: 85%;
-    justify-content: flex-end;
+    width: 100%;
+    justify-content: center;
 }
 
 .clube-desbravadores p{
-    width: 35%;
+    width: 85%;
     font-size: 24px;
     color: aliceblue;
-    padding-left: 9vw;
+    text-align: justify;
 }
 .clube-desbravadores_text{
     display: flex;
@@ -158,6 +157,7 @@ body{
     margin: 0;
     display: flex;
     flex-direction: column;
+    
 
 }
 .clubes h1{
@@ -172,7 +172,7 @@ body{
 }
 
 .clubes p{
-    width: 35%;
+    width: 90%;
     font-size: 24px;
     color: aliceblue;
     padding-left: 9vw;
@@ -181,6 +181,7 @@ body{
 
 .clubes img{
     width: 35vw;
+    margin-left: 33%;
 }
 
 /* FOOTER */
