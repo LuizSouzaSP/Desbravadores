@@ -238,7 +238,7 @@ section .conteiner-inicial{ /* conteiner do video */
     width: 10vw;
     height: 25vh;
     border-radius: 10px;
-    background-color: red;
+    background-color: antiquewhite;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
     transition: 0.2s ease-in-out;
 }
@@ -252,7 +252,7 @@ section .conteiner-inicial{ /* conteiner do video */
 .ideais .box-voto:hover{
     width: 10vw;
     height: 40vh;
-    background-color: red;
+    background-color: antiquewhite;
     transition: 0.2s ease-in-out;
 }
 .ideais p{
@@ -275,7 +275,7 @@ section .conteiner-inicial{ /* conteiner do video */
     width: 10vw;
     height: 25vh;
     border-radius: 10px;
-    background-color: red;
+    background-color: antiquewhite;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
     transition: 0.2s ease-in-out;
 }
@@ -289,7 +289,7 @@ section .conteiner-inicial{ /* conteiner do video */
 .ideais .box-lei:hover{
     width: 10vw;
     height: 57vh;
-    background-color: red;
+    background-color: antiquewhite;
     transition: 0.2s ease-in-out;
 }
 .ideais .box-lei:hover p {
@@ -309,7 +309,7 @@ section .conteiner-inicial{ /* conteiner do video */
     width: 10vw;
     height: 25vh;
     border-radius: 10px;
-    background-color: red;
+    background-color: antiquewhite;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
     transition: 0.2s ease-in-out;
 }
@@ -323,7 +323,7 @@ section .conteiner-inicial{ /* conteiner do video */
 .ideais .box-alvo:hover{
     width: 10vw;
     height: 35vh;
-    background-color: red;
+    background-color: antiquewhite;
     transition: 0.2s ease-in-out;
 }
 .ideais .box-alvo:hover p {
@@ -352,7 +352,7 @@ section .conteiner-inicial{ /* conteiner do video */
     width: 10vw;
     height: 25vh;
     border-radius: 10px;
-    background-color: red;
+    background-color: antiquewhite;
     
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
     transition: 0.2s ease-in-out;
@@ -370,7 +370,7 @@ section .conteiner-inicial{ /* conteiner do video */
 .ideais .box-lema:hover{
     width: 10vw;
     height: 32vh;
-    background-color: red;
+    background-color: antiquewhite;
     transition: 0.2s ease-in-out;
 }
 .ideais .box-lema:hover p {
@@ -392,7 +392,7 @@ section .conteiner-inicial{ /* conteiner do video */
     right: 0.5vw;
     height: 25vh;
     border-radius: 10px;
-    background-color: red;
+    background-color: antiquewhite;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
     transition: 0.2s ease-in-out;
 }
@@ -406,7 +406,7 @@ section .conteiner-inicial{ /* conteiner do video */
 .ideais .box-objetivo:hover{
     width: 10vw;
     height: 32vh;
-    background-color: red;
+    background-color: antiquewhite;
     transition: 0.2s ease-in-out;
 }
 .ideais .box-objetivo:hover p {
@@ -429,7 +429,7 @@ section .conteiner-inicial{ /* conteiner do video */
 
     height: 30vh;
     border-radius: 10px;
-    background-color: red;
+    background-color: antiquewhite;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
     transition: 0.2s ease-in-out;
 }
@@ -443,7 +443,7 @@ section .conteiner-inicial{ /* conteiner do video */
 .ideais .box-fidelidade:hover{
     width: 10vw;
     height: 49vh;
-    background-color: red;
+    background-color: antiquewhite;
     transition: 0.2s ease-in-out;
 }
 .ideais .box-fidelidade:hover p {

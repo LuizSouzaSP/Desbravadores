@@ -3,6 +3,9 @@ body{
     margin: 0;
     font-family: "Cal Sans", 'Arial';
 }
+.conteiner {
+    background-image: url("");
+}
 .box {
     display: flex;
     justify-content: center;
