@@ -43,3 +43,7 @@ input {
     display: flex;
     align-items: center;
 }
+a {
+    text-decoration: none;
+    color: rgb(59, 59, 155);
+}

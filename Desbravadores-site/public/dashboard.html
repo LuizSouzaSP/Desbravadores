@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/dashboard.css">
+</head>
+<body>
+    <div class="header">
+        <div class="conteiner">
+            <ul class="nav-bar">
+                <li>
+                    <div class="box">
+                        <a href="#">inicio</a>
+                    </div>
+                </li>
+                <li>
+                    <div class="box1">
+                        <a href="">Quiz</a>
+                    </div>
+                </li>
+                <li>
+                    <div class="box2">
+                        <a href="">Conta</a>
+                    </div>
+                </li>
+            </ul>
+            <div id="cards">
+                <div class="Amigo" onclick="amigo()">
+                    <img src="" alt="">
+                    <h2>Classe de Amigo</h2>
+                </div>
+                <div class="Companheiro">
+                    <img src="" alt="">
+                    <h2>Classe de Companheiro</h2>
+                </div>
+                <div class="Pesquisador">
+                    <img src="" alt="">
+                    <h2>Classe de Pesquisador</h2>
+                </div>
+                <div class="Pioneiro">
+                    <img src="" alt="">
+                    <h2>Classe de Pioneiro</h2>
+                </div>
+                <div class="Excursionista">
+                    <img src="" alt="">
+                    <h2>Classe de Excursionista</h2>
+                </div>
+                <div class="Guia">
+                    <img src="" alt="">
+                    <h2>Classe de Guia</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    window.onload = cards();
+    function cards(){
+        let idade = 10;
+        if (idade == 10){
+            card.innerHTML = `Classe de amigo`
+        } else if (idade == 11){
+            card.innerHTML = `Classe de companheiro`
+        } else if (idade == 12){
+            card.innerHTML = `Classe de pesquisador`
+        } else if (idade == 13){
+            card.innerHTML = `Classe de pioneiro`
+        } else if (idade == 14){
+            card.innerHTML = `Classe de excursionista`
+        } else if (idade == 15){
+            card.innerHTML = `Classe de guia`
+        } else if (idade >= 16){
+            card.innerHTML = `Todas as classes ou Agrupadas`
+        }
+    }
+    function amigo(){
+        location.href = 'amigo.html'
+    }
+</script>
