@@ -1,18 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A Melhor Aventura</title>
-    <link rel="stylesheet" href="styles/cadastro.css">
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Aventura | Cadastro</title>
+
+  <script src="./js/sessao.js"></script>
+
+  <link rel="stylesheet" href="./styles/cadastro.css" />
+  <link rel="icon" href="./assets/icon/logo-a-melhor-aventura.png"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
 </head>
+
 <body>
-<div class="header">
-    <div class="conteiner">
-        <div class="conteiner-geral">
-            <div class="box">
-                <div class="campos">
-                    <h1>Cadastrar</h1>
+  <div class="header">
+    <div class="container">
+      <div class="login">
+        <div class="alerta_erro">
+          <div class="card_erro" id="cardErro">
+            <span id="mensagem_erro"></span>
+          </div>
+        </div>
+        <div class="box">
+          <div class="campos">
+                           <h1>Cadastrar</h1>
                     <p>Digite o seu nome: </p>
                     <input type="text" id="ipt_nome" placeholder="nome...">
                     <p>Digite o seu sobrenome: </p>
@@ -25,47 +39,177 @@
                         <div id="validar_senha"></div>
                         <p>Digite novamente a senha:</p>
                         <input type="password" id="ipt_senhanovamente" placeholder="*********">
-                        <p>Informe sua data de nescimento: </p>
+                        <p>Informe sua data de nascimento: </p>
                         <input type="date" id="ipt_dtNasc">
                         <p>Qual clube que você frequenta?</p>
                         <select id="ipt_clube">
                             <option value="#">Selecione um clube</option>
-                            <option value="2">ALVORADA</option>
-                            <option value="3">ANTARES</option>
-                            <option value="4">ÁRVORE DA VILA</option>
-                            <option value="5">AURORA BOREAL</option>
-                            <option value="6">CENTAURO</option>
-                            <option value="7">ESTRELA DO ORIENTE</option>
-                            <option value="8">EVEREST MASTER</option>
-                            <option value="9">GAVIÃO REAL</option>
-                            <option value="10">GEDEONES DE LOS ANDES</option>
-                            <option value="11">NOVA SEMENTE</option>
-                            <option value="12">PIONEIROS DO CAMBUCI</option>
-                            <option value="13">SOL NASCENTE</option>
-                            <option value="14">ÁGUIAS DE HAIA</option>
-                            <option value="15">ALMIRANTE TAMANDARÉ</option>
-                            <option value="16">ALPHA SIRIÚS</option>
-                            <option value="17">ARCO-ÍRIS</option>
-                            <option value="18">BETEL</option>
-                            <option value="19">BORBA GATO</option>
-                            <option value="20">CAMPESTRE</option>
-                            <option value="0">NENHUM</option>
+                            <option value="nnhum">NENHUM</option>
+                            <option value="ALVORADA">ALVORADA</option>
+                            <option value="ANTARES">ANTARES</option>
+                            <option value="ÁRVORE DA VILA">ÁRVORE DA VILA</option>
+                            <option value="AURORA BOREAL">AURORA BOREAL</option>
+                            <option value="CENTAURO">CENTAURO</option>
+                            <option value="ESTRELA DO ORIENTE">ESTRELA DO ORIENTE</option>
+                            <option value="EVEREST MASTER">EVEREST MASTER</option>
+                            <option value="GAVIÃO REAL">GAVIÃO REAL</option>
+                            <option value="GEDEONES DE LOS ANDES">GEDEONES DE LOS ANDES</option>
+                            <option value="NOVA SEMENTE">NOVA SEMENTE</option>
+                            <option value="PIONEIROS DO CAMBUCI">PIONEIROS DO CAMBUCI</option>
+                            <option value="SOL NASCENTE">SOL NASCENTE</option>
+                            <option value="ÁGUIAS DE HAIA">ÁGUIAS DE HAIA</option>
+                            <option value="ALMIRANTE TAMANDARÉ">ALMIRANTE TAMANDARÉ</option>
+                            <option value="ALPHA SIRIÚS">ALPHA SIRIÚS</option>
+                            <option value="ARCO-ÍRIS">ARCO-ÍRIS</option>
+                            <option value="BETEL">BETEL</option>
+                            <option value="BORBA GATO">BORBA GATO</option>
+                            <option value="CAMPESTRE">CAMPESTRE</option>
                         </select>
-                        <div id="validar_senhanova"></div>
-                        <button onclick="cadastro()">Cadastrar</button>
-                        <div id="sucesso"></div>
+                        <button onclick="cadastrar()">Cadastrar</button>
                         <div class='login'>
                             <p>Já tem conta? </p><a href="login.html">Entrar</a>
+                        </div>
+                  <div id="div_aguardar" class="loading-div">
+                    <img src="./assets/circle-loading.gif" id="loading-gif" />
+                  </div>
+                  <div id="div_erros_login"></div>
+                </div>
             </div>
-            </div>
+          </div>
         </div>
     </div>
-</div>
-</div>
 </body>
+
 </html>
-</body>
-</html>
+
 <script>
-    
+
+  // Array para armazenar empresas cadastradas para validação de código de ativação 
+  // let listaEmpresasCadastradas = [];
+
+  function cadastrar() {
+    // aguardar();
+
+    //Recupere o valor da nova input pelo nome do id
+    // Agora vá para o método fetch logo abaixo
+    var nomeVar = ipt_nome.value;
+    var sobrenomeVar = ipt_sobrenome.value;
+    var emailVar = ipt_email.value;
+    var senhaVar = ipt_senha.value;
+    var confirmacaoSenhaVar = ipt_senhanovamente.value;
+    var dtnascVar = ipt_dtNasc.value;
+    var clubeVar = ipt_clube.value;
+
+    let com = emailVar.endsWith('.com');
+    let arroba = emailVar.indexOf('@');
+    let tamanhoSenha = senhaVar.length
+
+    // Verificando se há algum campo em branco
+    if (
+      nomeVar == "" ||
+      emailVar == "" ||
+      senhaVar == "" ||
+      confirmacaoSenhaVar == "" ||
+      dtnascVar == "" ||
+      clubeVar == "#"
+    ) {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML =
+        "(Mensagem de erro para todos os campos em branco)";
+
+      finalizarAguardar();
+      return false;
+    } else {
+      setInterval(sumirMensagem, 5000);
+    }
+
+    // Verificando se o código de ativação é de alguma empresa cadastrada
+    // for (let i = 0; i < listaEmpresasCadastradas.length; i++) {
+    //   if (listaEmpresasCadastradas[i].codigo_ativacao == codigoVar) {
+    //     idEmpresaVincular = listaEmpresasCadastradas[i].id
+    //     console.log("Código de ativação válido.");
+    //     break;
+    //   } else {
+    //     cardErro.style.display = "block";
+    //     mensagem_erro.innerHTML = "(Mensagem de erro para código inválido)";
+    //     finalizarAguardar();
+    //   }
+    // }
+
+    // Enviando o valor da nova input
+    fetch("/usuarios/cadastrar", {
+      method: "POST", 
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        // crie um atributo que recebe o valor recuperado aqui
+        // Agora vá para o arquivo routes/usuario.js
+        nomeServer: nomeVar,
+        sobrenomeServer: sobrenomeVar,
+        emailServer: emailVar,
+        senhaServer: senhaVar,
+        dtnascServer: dtnascVar,
+        clubeServer: clubeVar
+      }),
+    })
+      .then(function (resposta) {
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+          cardErro.style.display = "block";
+
+          mensagem_erro.innerHTML =
+            "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+          setTimeout(() => {
+            window.location = "login.html";
+          }, "2000");
+
+          limparFormulario();
+          finalizarAguardar();
+        } else {
+          throw "Houve um erro ao tentar realizar o cadastro!";
+        }
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+        finalizarAguardar();
+      });
+
+    return false;
+  }
+
+  // Listando empresas cadastradas 
+  // function listar() {
+  //   fetch("/empresas/listar", {
+  //     method: "GET",
+  //   })
+  //     .then(function (resposta) {
+  //       resposta.json().then((empresas) => {
+  //         empresas.forEach((empresa) => {
+  //           listaEmpresasCadastradas.push(empresa);
+
+  //           console.log("listaEmpresasCadastradas")
+  //           console.log(listaEmpresasCadastradas[0].codigo_ativacao)
+  //         });
+  //       });
+  //     })
+  //     .catch(function (resposta) {
+  //       console.log(`#ERRO: ${resposta}`);
+  //     });
+  // }
+
+  function sumirMensagem() {
+    cardErro.style.display = "none";
+  }
+  function limparFormulario() {
+    ipt_nome.value = "";
+    ipt_sobrenome.value = "";
+    ipt_email.value = "";
+    ipt_senha.value = "";
+    ipt_senhanovamente.value = "";
+    ipt_dtNasc.value = "";
+    ipt_clube.value = "#";
+  }
 </script>
