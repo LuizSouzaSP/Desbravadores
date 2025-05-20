@@ -4,7 +4,7 @@ body{
     font-family: "Cal Sans", 'Arial';
 }
 .conteiner {
-    background-image: url("");
+    background-image: url("../assets/imgs/img-fundo-cadastro-login.png");
 }
 .box {
     display: flex;

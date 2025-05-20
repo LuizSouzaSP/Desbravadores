@@ -17,7 +17,7 @@
                 </li>
                 <li>
                     <div class="box1">
-                        <a href="">Quiz</a>
+                        <a href="quiz.html">Quiz</a>
                     </div>
                 </li>
                 <li>
@@ -27,27 +27,27 @@
                 </li>
             </ul>
             <div id="cards">
-                <div class="Amigo" onclick="amigo()">
+                <div class="Amigo" onclick="amigo()" id="idAmigo">
                     <img src="assets/imgs/ClasseAmigo.jpeg" alt="">
                     <h2>Classe de Amigo</h2>
                 </div>
-                <div class="Companheiro">
+                <div class="Companheiro" onclick="companheiro()" id="idCompanheiro">
                     <img src="assets/imgs/ClasseCompanheiro.jpeg" alt="">
                     <h2>Classe de Companheiro</h2>
                 </div>
-                <div class="Pesquisador">
+                <div class="Pesquisador" onclick="pesquisador()" id="idPesquisador">
                     <img src="assets/imgs/ClassePesquisador.jpeg" alt="">
                     <h2>Classe de Pesquisador</h2>
                 </div>
-                <div class="Pioneiro">
+                <div class="Pioneiro" onclick="pioneiro()" id="idPioneiro">
                     <img src="assets/imgs/ClassePioneiro.jpeg" alt="">
                     <h2>Classe de Pioneiro</h2>
                 </div>
-                <div class="Excursionista">
+                <div class="Excursionista" onclick="excursionista()" id="idExcursionista">
                     <img src="assets/imgs/ClasseExcursionista.jpeg" alt="">
                     <h2>Classe de Excursionista</h2>
                 </div>
-                <div class="Guia">
+                <div class="Guia" onclick="guia()" id="idGuia">
                     <img src="assets/imgs/ClasseGuia.jpeg" alt="">
                     <h2>Classe de Guia</h2>
                 </div>
@@ -57,26 +57,106 @@
 </body>
 </html>
 <script>
-    window.onload = cards();
-    function cards(){
-        let idade = 10;
-        if (idade == 10){
-            card.innerHTML = `Classe de amigo`
-        } else if (idade == 11){
-            card.innerHTML = `Classe de companheiro`
-        } else if (idade == 12){
-            card.innerHTML = `Classe de pesquisador`
-        } else if (idade == 13){
-            card.innerHTML = `Classe de pioneiro`
-        } else if (idade == 14){
-            card.innerHTML = `Classe de excursionista`
-        } else if (idade == 15){
-            card.innerHTML = `Classe de guia`
-        } else if (idade >= 16){
-            card.innerHTML = `Todas as classes ou Agrupadas`
+    let idade = 16;
+    if (idade == 10){
+        idCompanheiro.style.opacity = "0.3";
+        idPesquisador.style.opacity = "0.3";
+        idPioneiro.style.opacity = "0.3";
+        idExcursionista.style.opacity = "0.3";
+        idGuia.style.opacity = "0.3";
+
+        function amigo(){
+            location.href = 'amigo.html' 
+    }
+    } else if (idade == 11){
+        idAmigo.style.opacity = "0.3";
+        idPesquisador.style.opacity = "0.3";
+        idPioneiro.style.opacity = "0.3";
+        idExcursionista.style.opacity = "0.3";
+        idGuia.style.opacity = "0.3";
+
+        function companheiro(){
+            location.href = 'amigo.html' 
+    }
+    } else if (idade == 12){
+        idAmigo.style.opacity = "0.3";
+        idCompanheiro.style.opacity = "0.3";
+        idPioneiro.style.opacity = "0.3";
+        idExcursionista.style.opacity = "0.3";
+        idGuia.style.opacity = "0.3";
+
+        function pesquisador(){
+            location.href = 'pesquisador.html'
         }
-    }
+    } else if (idade == 13){
+        idAmigo.style.opacity = "0.3";
+        idPesquisador.style.opacity = "0.3";
+        idCompanheiro.style.opacity = "0.3";
+        idExcursionista.style.opacity = "0.3";
+        idGuia.style.opacity = "0.3";
+
+        function pioneiro(){
+            location.href = 'pioneiro.html'
+        }
+    } else if (idade == 14){
+        idAmigo.style.opacity = "0.3";
+        idPesquisador.style.opacity = "0.3";
+        idCompanheiro.style.opacity = "0.3";
+        idPioneiro.style.opacity = "0.3";
+        idGuia.style.opacity = "0.3";
+
+        function excursionista(){
+            location.href = 'excursionista.html'   
+        }
+    } else if (idade == 15){
+        idAmigo.style.opacity = "0.3";
+        idPesquisador.style.opacity = "0.3";
+        idCompanheiro.style.opacity = "0.3";
+        idPioneiro.style.opacity = "0.3";
+        idExcursionista.style.opacity = "0.3";
+        
+        function guia(){
+            location.href = 'guia.html'
+        }
+    } else {
     function amigo(){
-        location.href = 'amigo.html'
+            location.href = 'amigo.html' 
     }
+    function companheiro(){
+            location.href = 'amigo.html' 
+    }
+    function pesquisador(){
+            location.href = 'pesquisador.html'
+    }
+    function pioneiro(){
+            location.href = 'pioneiro.html'
+    }
+    function excursionista(){
+            location.href = 'excursionista.html'   
+    }
+    function guia(){
+            location.href = 'guia.html'
+    }
+    
+    }
+    // function cards(){
+    //     if (idade == 10){
+    //     } else if (idade == 11){
+    //         card.innerHTML = `Classe de companheiro`
+    //     } else if (idade == 12){
+    //         card.innerHTML = `Classe de pesquisador`
+    //     } else if (idade == 13){
+    //         card.innerHTML = `Classe de pioneiro`
+    //     } else if (idade == 14){
+    //         card.innerHTML = `Classe de excursionista`
+    //     } else if (idade == 15){
+    //         card.innerHTML = `Classe de guia`
+    //     } else if (idade >= 16){
+    //         card.innerHTML = `Todas as classes ou Agrupadas`
+    //     }
+    // }
+   
+    
+    
+
 </script>
