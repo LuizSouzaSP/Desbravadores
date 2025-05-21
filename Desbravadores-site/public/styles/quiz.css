@@ -96,9 +96,30 @@ body {
     font-family: "Cal Sans", 'Arial';
 }
 
-button {
-    font-family: monospace;
+.botaoIniciar button {
+    border-radius: 20px;
+    border: 0;
     font-weight: bold;
+    width: 20vw;
+    height: 10vh;
+    background-color: #FDD500;
+    transition: 0.3s ease-in-out;
+}
+.botaoIniciar {
+    display: flex;
+    justify-content: center;
+    margin-left: 15vw;
+}
+.botaoIniciar:active button {
+    width: 19.5vw;
+    height: 9.5vh;
+}
+.botaoIniciar:hover button {
+    background-color: #ffe762
+}
+
+button {
+    cursor: pointer;
 }
 
 .flex-colunar {
@@ -109,13 +130,22 @@ button {
 .width-fit-content {
     width: fit-content;
 }
-
 .border-primary {
-    border: 3px solid var(--primary-brand-color);
+    margin-left: 25vw;
 }
 
 .border-secondary {
-    border: 3px solid var(--secondary-brand-color);
+    width: 98.9%;
+    position: relative;
+    top: 10vh;
+}
+
+.border-secondary button {
+    padding-top: 25px;
+    padding-bottom: 25px;
+    border: 0;
+    border-radius: 12px;
+    margin-bottom: 10px;
 }
 
 .padding-8 {
@@ -143,4 +173,27 @@ button {
 
 .text-new-gray {
     color: var(--new-gray);
+}
+.conteiner-quiz {
+    position: relative;
+    top: 10vh;
+    width: 100%;
+    height: 100%;
+    
+    display: flex;
+    justify-content: center;
+}
+#questoes {
+    width: 60vw;
+    height: 242vh;
+    background-color: #FDD500;
+    border-radius: 20px;
+    opacity: 0%;
+    transition: 0.5s ease-in-out;
+    margin-left: 10vw;
+}
+.conteiner-box {
+    position: hidden;
+    display: flex;
+    width: 100%;
 }

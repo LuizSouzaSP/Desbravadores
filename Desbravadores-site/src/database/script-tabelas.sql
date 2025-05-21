@@ -6,57 +6,63 @@
 comandos para mysql server
 */
 
-CREATE DATABASE aquatech;
+create database Aventura;
 
-USE aquatech;
+use Aventura;
 
-CREATE TABLE empresa (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	razao_social VARCHAR(50),
-	cnpj CHAR(14),
-	codigo_ativacao VARCHAR(50)
+-- -----------------------------------------------------
+-- Tabela usuario
+-- -----------------------------------------------------
+create table usuario (
+  idusuario int primary key auto_increment,
+  nome varchar(45) not null,
+  sobrenome varchar(45) not null,
+  dtNascimento date not null,
+  email varchar(45) not null,
+  senha varchar(45) not null,
+  dtCriacao timestamp default current_timestamp
+  );
+
+-- -----------------------------------------------------
+-- Tabela questionario
+-- -----------------------------------------------------
+create table questionario (
+  idquestionario int not null,
+  primary key (idquestionario)
 );
 
-CREATE TABLE usuario (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	nome VARCHAR(50),
-	email VARCHAR(50),
-	senha VARCHAR(50),
-	fk_empresa INT,
-	FOREIGN KEY (fk_empresa) REFERENCES empresa(id)
+
+-- -----------------------------------------------------
+-- Tabela questionario_usuario
+-- -----------------------------------------------------
+create table questionario_usuario (
+  questionario_idquestionario int not null,
+  usuario_idusuario int not null,
+  primary key (questionario_idquestionario, usuario_idusuario),
+  constraint fk_questionario_has_usuario_questionario1 foreign key (questionario_idquestionario) references questionario (idquestionario),
+  constraint fk_questionario_has_usuario_usuario1 foreign key (usuario_idusuario) references usuario (idusuario)
 );
 
-CREATE TABLE aviso (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	titulo VARCHAR(100),
-	descricao VARCHAR(150),
-	fk_usuario INT,
-	FOREIGN KEY (fk_usuario) REFERENCES usuario(id)
+
+-- -----------------------------------------------------
+-- Tabela questoes
+-- -----------------------------------------------------
+create table  questoes (
+  idquestoes int not null,
+  questionario_idquestionario int not null,
+  certa CHAR(1) not null,
+  errada CHAR(1) not null,
+  primary key (idquestoes, questionario_idquestionario),
+  constraint fk_questoes_questionario1 foreign key (questionario_idquestionario) references questionario (idquestionario)
 );
 
-create table aquario (
-/* em nossa regra de negócio, um aquario tem apenas um sensor */
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	descricao VARCHAR(300),
-	fk_empresa INT,
-	FOREIGN KEY (fk_empresa) REFERENCES empresa(id)
-);
+alter table usuario modify dtCriacao timestamp default current_timestamp;
+alter table usuario add column clube varchar(45) not null;
 
-/* esta tabela deve estar de acordo com o que está em INSERT de sua API do arduino - dat-acqu-ino */
-
-create table medida (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	dht11_umidade DECIMAL,
-	dht11_temperatura DECIMAL,
-	luminosidade DECIMAL,
-	lm35_temperatura DECIMAL,
-	chave TINYINT,
-	momento DATETIME,
-	fk_aquario INT,
-	FOREIGN KEY (fk_aquario) REFERENCES aquario(id)
-);
-
-insert into empresa (razao_social, codigo_ativacao) values ('Empresa 1', 'ED145B');
-insert into empresa (razao_social, codigo_ativacao) values ('Empresa 2', 'A1B2C3');
-insert into aquario (descricao, fk_empresa) values ('Aquário de Estrela-do-mar', 1);
-insert into aquario (descricao, fk_empresa) values ('Aquário de Peixe-dourado', 2);
+select *
+from questionario_usuario qu
+inner join questionario q
+on q.idquestionario = qu.questionario_idquestionario
+inner join usuario u
+on u.idusuario = qu.usuario_idusuario
+where u.idusuario = 1;
