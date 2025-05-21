@@ -55,8 +55,8 @@
                     <span id="idImagem"></span>
             </div>
 
-            <div id="perguntaDaQuestaoAtual" class="padding-8">
-                <span id="spanQuestaoExibida" class="text-bold"></span>
+            <div id="perguntaDaQuestao1" class="padding-8">
+                <span id="spanQuestaoExibida" class="text-bold">Qual mês tem 30 dias?</span>
             </div>
 
             <div id="infoAlternativas" class="padding-8">
@@ -66,19 +66,19 @@
             <div id="opcoes" class="flex-colunar padding-8">
                 <span>
                     <input type="radio" id="primeiraOpcao" name="option" class="radio" value="alternativaA" />
-                    <label for="primeiraOpcao" class="option" id="labelOpcaoUm"></label>
+                    <label for="primeiraOpcao" class="option" id="labelOpcaoUm">1</label>
                 </span>
                 <span>
                     <input type="radio" id="segundaOpcao" name="option" class="radio" value="alternativaB" />
-                    <label for="segundaOpcao" class="option" id="labelOpcaoDois"></label>
+                    <label for="segundaOpcao" class="option" id="labelOpcaoDois">2</label>
                 </span>
                 <span>
                     <input type="radio" id="terceiraOpcao" name="option" class="radio" value="alternativaC" />
-                    <label for="terceiraOpcao" class="option" id="labelOpcaoTres"></label>
+                    <label for="terceiraOpcao" class="option" id="labelOpcaoTres">3</label>
                 </span>
                 <span>
                     <input type="radio" id="quartaOpcao" name="option" class="radio" value="alternativaD" />
-                    <label for="quartaOpcao" class="option" id="labelOpcaoQuatro"></label>
+                    <label for="quartaOpcao" class="option" id="labelOpcaoQuatro">4</label>
                 </span>
             </div>
 
@@ -89,7 +89,7 @@
                     <span id="idImagem"></span>
             </div>
 
-            <div id="perguntaDaQuestaoAtual" class="padding-8">
+            <div id="perguntaDaQuestao2" class="padding-8">
                 <span id="spanQuestaoExibida" class="text-bold"></span>
             </div>
 
@@ -123,7 +123,7 @@
                     <span id="idImagem"></span>
             </div>
 
-            <div id="perguntaDaQuestaoAtual" class="padding-8">
+            <div id="perguntaDaQuestao3" class="padding-8">
                 <span id="spanQuestaoExibida" class="text-bold"></span>
             </div>
 
@@ -157,7 +157,7 @@
                     <span id="idImagem"></span>
             </div>
 
-            <div id="perguntaDaQuestaoAtual" class="padding-8">
+            <div id="perguntaDaQuestao4" class="padding-8">
                 <span id="spanQuestaoExibida" class="text-bold"></span>
             </div>
 
@@ -191,7 +191,7 @@
                     <span id="idImagem"></span>
             </div>
 
-            <div id="perguntaDaQuestaoAtual" class="padding-8">
+            <div id="perguntaDaQuestao5" class="padding-8">
                 <span id="spanQuestaoExibida" class="text-bold"></span>
             </div>
 
@@ -225,7 +225,7 @@
                     <span id="idImagem"></span>
             </div>
 
-            <div id="perguntaDaQuestaoAtual" class="padding-8">
+            <div id="perguntaDaQuestao6" class="padding-8">
                 <span id="spanQuestaoExibida" class="text-bold"></span>
             </div>
 
@@ -259,7 +259,7 @@
                     <span id="idImagem"></span>
             </div>
 
-            <div id="perguntaDaQuestaoAtual" class="padding-8">
+            <div id="perguntaDaQuestao7" class="padding-8">
                 <span id="spanQuestaoExibida" class="text-bold"></span>
             </div>
 
@@ -293,7 +293,7 @@
                     <span id="idImagem"></span>
             </div>
 
-            <div id="perguntaDaQuestaoAtual" class="padding-8">
+            <div id="perguntaDaQuestao8" class="padding-8">
                 <span id="spanQuestaoExibida" class="text-bold"></span>
             </div>
 
@@ -327,7 +327,7 @@
                     <span id="idImagem"></span>
             </div>
 
-            <div id="perguntaDaQuestaoAtual" class="padding-8">
+            <div id="perguntaDaQuestao9" class="padding-8">
                 <span id="spanQuestaoExibida" class="text-bold"></span>
             </div>
 
@@ -361,7 +361,7 @@
                     <span id="idImagem"></span>
             </div>
 
-            <div id="perguntaDaQuestaoAtual" class="padding-8">
+            <div id="perguntaDaQuestao10" class="padding-8">
                 <span id="spanQuestaoExibida" class="text-bold"></span>
             </div>
 
@@ -408,93 +408,93 @@
     const listaDeQuestoes = [
 
         {
-            pergunta: "Qual mês tem 30 dias?",
-            alternativaA: "Janeiro",
-            alternativaB: "Dezembro",
-            alternativaC: "Junho",
-            alternativaD: "Agosto",
-            alternativaCorreta: "alternativaC"
+            pergunta: 0,
+            alternativaA: 0,
+            alternativaB: 0,
+            alternativaC: 0,
+            alternativaD: 1,
+            // alternativaCorreta: 1
         },
 
         {
-            pergunta: "Quantas horas tem em um dia?",
-            alternativaA: "30 horas",
-            alternativaB: "38 horas",
-            alternativaC: "48 horas",
-            alternativaD: "24 horas",
-            alternativaCorreta: "alternativaD"
+            pergunta: 2,
+            alternativaA: 0,
+            alternativaB: 1,
+            alternativaC: 0,
+            alternativaD: 0,
+            // alternativaCorreta: "alternativaD"
         },
 
         {
-            pergunta: "Qual destes números é ímpar?",
-            alternativaA: "Dez",
-            alternativaB: "Doze",
-            alternativaC: "Oito",
-            alternativaD: "Onze",
-            alternativaCorreta: "alternativaD"
+            pergunta: 3,
+            alternativaA: 0,
+            alternativaB: 0,
+            alternativaC: 1,
+            alternativaD: 0,
+            // alternativaCorreta: "alternativaD"
         },
 
         {
-            pergunta: "Qual destes números é ímpar?",
-            alternativaA: "Dez",
-            alternativaB: "Doze",
-            alternativaC: "Oito",
-            alternativaD: "Onze",
-            alternativaCorreta: "alternativaD"
+            pergunta: 4,
+            alternativaA: 0,
+            alternativaB: 1,
+            alternativaC: 0,
+            alternativaD: 0,
+            // alternativaCorreta: "alternativaD"
         },
 
         {
-            pergunta: "Qual destes números é ímpar?",
-            alternativaA: "Dez",
-            alternativaB: "Doze",
-            alternativaC: "Oito",
-            alternativaD: "Onze",
-            alternativaCorreta: "alternativaD"
+            pergunta: 5,
+            alternativaA: 0,
+            alternativaB: 0,
+            alternativaC: 1,
+            alternativaD: 0
+            // alternativaCorreta: "alternativaD"
         },
 
         {
-            pergunta: "Qual destes números é ímpar?",
-            alternativaA: "Dez",
-            alternativaB: "Doze",
-            alternativaC: "Oito",
-            alternativaD: "Onze",
-            alternativaCorreta: "alternativaD"
+            pergunta: 6,
+            alternativaA: 1,
+            alternativaB: 0,
+            alternativaC: 0,
+            alternativaD: 0,
+            // alternativaCorreta: "alternativaD"
         },
 
         {
-            pergunta: "Qual destes números é ímpar?",
-            alternativaA: "Dez",
-            alternativaB: "Doze",
-            alternativaC: "Oito",
-            alternativaD: "Onze",
-            alternativaCorreta: "alternativaD"
+            pergunta: 7,
+            alternativaA: 0,
+            alternativaB: 0,
+            alternativaC: 0,
+            alternativaD: 1,
+            // alternativaCorreta: "alternativaD"
         },
 
         {
-            pergunta: "Qual destes números é ímpar?",
-            alternativaA: "Dez",
-            alternativaB: "Doze",
-            alternativaC: "Oito",
-            alternativaD: "Onze",
-            alternativaCorreta: "alternativaD"
+            pergunta: 8,
+            alternativaA: 0,
+            alternativaB: 1,
+            alternativaC: 0,
+            alternativaD: 0,
+            // alternativaCorreta: "alternativaD"
         },
 
         {
-            pergunta: "Qual destes números é ímpar?",
-            alternativaA: "Dez",
-            alternativaB: "Doze",
-            alternativaC: "Oito",
-            alternativaD: "Onze",
-            alternativaCorreta: "alternativaD"
+            pergunta: 9,
+            alternativaA: 0,
+            alternativaB: 0,
+            alternativaC: 1,
+            alternativaD: 0,
+            // alternativaCorreta: "alternativaD"
         },
 
         {
-            pergunta: "Qual destes números é ímpar?",
-            alternativaA: "Dez",
-            alternativaB: "Doze",
-            alternativaC: "Oito",
-            alternativaD: "Onze",
-            alternativaCorreta: "alternativaD"
+            pergunta: 10,
+            alternativaA: 0,
+            alternativaB: 0,
+            alternativaC: 1,
+            alternativaD: 0,
+            // alternativaCorreta: "alternativaD"
         }
 
     ]
@@ -530,20 +530,20 @@
         // btnTentarNovamente.disabled = true
     }
 
-    function preencherHTMLcomQuestaoAtual(index) {
-        habilitarAlternativas(true)
-        const questaoAtual = listaDeQuestoes[index]
-        numeroDaQuestaoAtual = index
-        console.log("questaoAtual")
-        console.log(questaoAtual)
+    // function preencherHTMLcomQuestaoAtual(index) {
+    //     habilitarAlternativas(true)
+    //     const questaoAtual = listaDeQuestoes[index]
+    //     numeroDaQuestaoAtual = index
+    //     console.log("questaoAtual")
+    //     console.log(questaoAtual)
         
-        document.getElementById("spanNumeroDaQuestaoAtual").innerHTML = Number(index) + 1 // ajustando porque o index começa em 0
-        document.getElementById("spanQuestaoExibida").innerHTML = questaoAtual.pergunta;
-        document.getElementById("labelOpcaoUm").innerHTML = questaoAtual.alternativaA;
-        document.getElementById("labelOpcaoDois").innerHTML = questaoAtual.alternativaB;
-        document.getElementById("labelOpcaoTres").innerHTML = questaoAtual.alternativaC;
-        document.getElementById("labelOpcaoQuatro").innerHTML = questaoAtual.alternativaD;
-    }
+    //     document.getElementById("spanNumeroDaQuestaoAtual").innerHTML = Number(index) + 1 // ajustando porque o index começa em 0
+    //     document.getElementById("spanQuestaoExibida").innerHTML = questaoAtual.pergunta;
+    //     document.getElementById("labelOpcaoUm").innerHTML = questaoAtual.alternativaA;
+    //     document.getElementById("labelOpcaoDois").innerHTML = questaoAtual.alternativaB;
+    //     document.getElementById("labelOpcaoTres").innerHTML = questaoAtual.alternativaC;
+    //     document.getElementById("labelOpcaoQuatro").innerHTML = questaoAtual.alternativaD;
+    // }
 
     function submeter() {
         const options = document.getElementsByName("option"); // recupera alternativas no html
@@ -568,15 +568,15 @@
         }
     }
 
-    function habilitarAlternativas(trueOrFalse) {
-        let opcaoEscolhida = trueOrFalse ? false : true
+    // function habilitarAlternativas(trueOrFalse) {
+    //     let opcaoEscolhida = trueOrFalse ? false : true
 
-        primeiraOpcao.disabled = opcaoEscolhida
-        segundaOpcao.disabled = opcaoEscolhida
-        terceiraOpcao.disabled = opcaoEscolhida
-        quartaOpcao.disabled = opcaoEscolhida
+    //     primeiraOpcao.disabled = opcaoEscolhida
+    //     segundaOpcao.disabled = opcaoEscolhida
+    //     terceiraOpcao.disabled = opcaoEscolhida
+    //     quartaOpcao.disabled = opcaoEscolhida
 
-    }
+    // }
 
     // function avancar() {
     //     btnProx.disabled = true
@@ -607,6 +607,12 @@
         const options = document.getElementsByName("option"); // recupera alternativas no html
 
         let alternativaCorreta = null // variável para armazenar a alternativa correta
+
+        // for(i = 0;i <= listaDeQuestoes.length;i++){
+        //     for(m = 0;m < listaDeQuestoes[i]; m++){
+        //         if ()
+        //     }
+        // }
 
         options.forEach((option) => {
             if (option.value === respostaQuestaoAtual) {
