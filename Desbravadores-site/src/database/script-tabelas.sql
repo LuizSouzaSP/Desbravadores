@@ -58,11 +58,13 @@ create table  questoes (
 
 alter table usuario modify dtCriacao timestamp default current_timestamp;
 alter table usuario add column clube varchar(45) not null;
+alter table questoes drop column errada;
+alter table questoes rename column certa to resultado;
 
-select *
-from questionario_usuario qu
-inner join questionario q
-on q.idquestionario = qu.questionario_idquestionario
-inner join usuario u
-on u.idusuario = qu.usuario_idusuario
-where u.idusuario = 1;
+insert into questionario(idquestionario) 
+values(1);
+insert into usuario(nome, sobrenome, dtNascimento, email, senha, clube) 
+values('nome', 'nome', '2025-05-21', 'admin', 'admin', 'clube');
+insert into questionario_usuario(questionario_idquestionario, usuario_idusuario) 
+values(1, 1);
+
