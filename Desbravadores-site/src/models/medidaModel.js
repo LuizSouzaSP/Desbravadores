@@ -1,5 +1,30 @@
 var database = require("../database/config");
 
+function inserirResultadosQuestionarioUsuario(idQuestionario, idUsuario) {
+
+    var instrucaoSql = `INSERT INTO questionario_usuario (fkquestionario, fkusuario)
+    VALUES(${idQuestionario}, ${idUsuario})`;
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+function inserirResultadosQuestoes(idQuestao, fkQuestionario, resultadoQUEST) {
+
+    var instrucaoSql = `INSERT INTO questoes (idquestoes, fkquestionario, resultado)
+    VALUES(${idQuestao}, ${fkQuestionario},${resultadoQUEST})`;
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
+
+module.exports = {
+    inserirResultadosQuestionarioUsuario,
+    inserirResultadosQuestoes
+}
+
+
+
 // function buscarUltimasMedidas(idAquario, limite_linhas) {
 
 //     var instrucaoSql = `SELECT 
@@ -28,15 +53,3 @@ var database = require("../database/config");
 //     console.log("Executando a instrução SQL: \n" + instrucaoSql);
 //     return database.executar(instrucaoSql);
 // }
-function inserirResultadosQuestoes(idAquario, limite_linhas) {
-
-    var instrucaoSql = `INSERT INTO `;
-
-    console.log("Executando a instrução SQL: \n" + instrucaoSql);
-    return database.executar(instrucaoSql);
-}
-
-module.exports = {
-    inserirResultadosQuestoes
-    // buscarMedidasEmTempoReal
-}

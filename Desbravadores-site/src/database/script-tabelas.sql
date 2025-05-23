@@ -20,6 +20,7 @@ create table usuario (
   dtNascimento date not null,
   email varchar(45) not null,
   senha varchar(45) not null,
+  clube varchar(45) not null,
   dtCriacao timestamp default current_timestamp
   );
 
@@ -27,8 +28,7 @@ create table usuario (
 -- Tabela questionario
 -- -----------------------------------------------------
 create table questionario (
-  idquestionario int not null,
-  primary key (idquestionario)
+  idquestionario int primary key
 );
 
 
@@ -36,11 +36,11 @@ create table questionario (
 -- Tabela questionario_usuario
 -- -----------------------------------------------------
 create table questionario_usuario (
-  questionario_idquestionario int not null,
-  usuario_idusuario int not null,
-  primary key (questionario_idquestionario, usuario_idusuario),
-  constraint fk_questionario_has_usuario_questionario1 foreign key (questionario_idquestionario) references questionario (idquestionario),
-  constraint fk_questionario_has_usuario_usuario1 foreign key (usuario_idusuario) references usuario (idusuario)
+  fkquestionario int not null,
+  fkusuario int not null,
+  primary key (fkquestionario, fkusuario),
+  constraint fkquestionario foreign key (fkquestionario) references questionario (idquestionario),
+  constraint fkusuario foreign key (fkusuario) references usuario (idusuario)
 );
 
 
@@ -49,22 +49,57 @@ create table questionario_usuario (
 -- -----------------------------------------------------
 create table  questoes (
   idquestoes int not null,
-  questionario_idquestionario int not null,
-  certa CHAR(1) not null,
-  errada CHAR(1) not null,
-  primary key (idquestoes, questionario_idquestionario),
-  constraint fk_questoes_questionario1 foreign key (questionario_idquestionario) references questionario (idquestionario)
+  fkquestionario int not null,
+  resultado char(1),
+  primary key (idquestoes, fkquestionario),
+  constraint fkquestionario_questao foreign key (fkquestionario) references questionario (idquestionario)
+);
+
+-- -----------------------------------------------------
+-- Tabela classes
+-- -----------------------------------------------------
+
+create table classes (
+idClasse int primary key auto_increment,
+nome varchar(15) not null,
+idade int not null
+);
+
+create table classe_usuario(
+fkClasse int not null,
+fkUsuario int not null,
+constraint fk_Classe foreign key (fkClasse) references classes(idClasse),
+constraint fk_Usuario foreign key (fkUsuario) references usuario(idusuario)
+);
+
+create table requisitos (
+idRequisito int auto_increment,
+fkclasse int,
+primary key (idRequisito, fkclasse),
+constraint fkclasse foreign key (fkclasse) references classes(idClasse)
 );
 
 alter table usuario modify dtCriacao timestamp default current_timestamp;
-alter table usuario add column clube varchar(45) not null;
-alter table questoes drop column errada;
-alter table questoes rename column certa to resultado;
 
 insert into questionario(idquestionario) 
 values(1);
 insert into usuario(nome, sobrenome, dtNascimento, email, senha, clube) 
 values('nome', 'nome', '2025-05-21', 'admin', 'admin', 'clube');
-insert into questionario_usuario(questionario_idquestionario, usuario_idusuario) 
+insert into questionario_usuario(fkquestionario, fkusuario) 
 values(1, 1);
 
+
+insert into usuario(nome, sobrenome, dtNascimento, email, senha, clube) 
+values('nome', 'nome', '2006-05-21', 'admin', 'admin', 'clube');
+drop database Aventura;
+
+insert into classes(nome, idade)
+values('Amigo', 10),
+('Companheiro', 11),
+('Pesquisador', 12),
+('Pioneiro', 13),
+('Excursionista', 14),
+('Guia', 15);
+
+select (year(current_date()) - year(dtNascimento))
+from usuario;
