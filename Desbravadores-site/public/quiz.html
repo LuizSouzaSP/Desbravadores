@@ -26,11 +26,12 @@
                     </div>
                 </li>
             </ul>
-<body onload="onloadEsconder()">
+<body onload="onloadEsconder(), validarSessao()">
     <div class="conteiner-quiz">
     <div id="pontuacaoEJogo">
             <div class="botaoIniciar">
                 <button id="btnIniciarQuiz" onclick="iniciarQuiz()">INICIAR QUIZ</button>
+                <span id="b_usuario"></span>
             </div>
         <div class="conteiner-box">
         <div class="questoes" id="questoes">
@@ -404,8 +405,14 @@
 </body>
 
 </html>
+<script src="js/sessao.js"></script>
+
 <script>
-    const resultados = {
+
+    var id = sessionStorage.ID_USUARIO;
+    console.log(id);
+
+    const resultados = [{
         pergunta1: 0,
         pergunta2: 0,
         pergunta3: 0,
@@ -417,13 +424,15 @@
         pergunta9: 0,
         pergunta10: 0
 
-    }
+    }]
+
+    let idQuestionario = 1
+
 
     // variáveis globais    
     let numeroDaQuestaoAtual = 0
     let pontuacaoFinal = 0
     let tentativaIncorreta = 0
-    let certas = 0
     let erradas = 0
     let pontuacao = 0
     // let quantidadeDeQuestoes = listaDeQuestoes.length
@@ -626,16 +635,17 @@
         let questoes = resultados.length
         const porcentagemFinalDeAcertos = pontuacao / questoes
 
-        for(let i = 1;i <= 10;i++){
-            const percorrer = `pergunta${i}`
-            if(resultados[percorrer] === 1){
-                certas++
-            } else {
-                erradas++
-            }
-        }
+        // for(let i = 1;i <= 10;i++){
+        //     const percorrer = `pergunta${i}`
+        //     if(resultados[percorrer] == 1){
+        //         certas++
+        //     } else {
+        //         erradas++
+        //     }
+        // }
+        erradas = (pontuacao - questoes)
 
-        console.log(`São ${certas} respostas certas`)
+        console.log(`São ${pontuacao} respostas certas`)
 
         if (porcentagemFinalDeAcertos <= 3) {
             textoParaMensagemFinal = "Parece que você não estudou..."
@@ -655,13 +665,31 @@
 
         document.getElementById('msgFinal').innerHTML = textoParaMensagemFinal
         document.getElementById('msgFinal').classList.add(classComCoresParaMensagemFinal) 
-        document.getElementById('spanPontuacaoFinal').innerHTML = (certas)
-        document.getElementById('jogo').classList.add("text-new-gray") 
+        document.getElementById('spanPontuacaoFinal').innerHTML = (pontuacao)
+        document.getElementById('jogo').classList.add("text-new-gray")
+
+        spanCertas.innerHTML = `${pontuacao}`
+        spanErradas.innerHTML = `${erradas}`
 
         // btnProx.disabled = true
         btnSubmeter.disabled = true
         btnConcluir.disabled = true
-        // btnTentarNovamente.disabled = false
+        // btnTentarNovamente.disabled = fals
+        fetch(`http://localhost:3333/questao/questionario/1`, {
+        method: 'POST',
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            idQuestionarioServer: idQuestionario,
+            idUsuarioServer: idUsuario,
+            resultadoServer: pontuacao
+        })
+    })
 
     }
+    
+    // function salvar() {
+            
+    // }
 </script>

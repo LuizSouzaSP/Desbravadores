@@ -1,13 +1,16 @@
+
 var medidaModel = require("../models/medidaModel");
 
-function inserirResultadosQuestionarioUsuario(req, req, res) {
-
-    var idQuestionario = req.params.idQuestionario;
-    var idUsuario = req.params.idUsuario;
+function inserirResultadosQuestionarioUsuario(req, res) {
+    // variavel para recuperar os valores do arquivo quiz
+    var idQuestionario = req.body.idQuestionarioServer;
+    var idUsuario = req.body.idUsuarioServer;
+    // var idQuestao = req.body.idQuestaoServer;
+    var resultado = req.body.resultadoServer;
 
     console.log(` ${idQuestionario}`);
 
-    medidaModel.inserirResultadosQuestionarioUsuario(idQuestionario, idUsuario).then(function (resultado) {
+    medidaModel.inserirResultadosQuestionarioUsuario(idQuestionario, idUsuario, resultado).then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
@@ -21,30 +24,31 @@ function inserirResultadosQuestionarioUsuario(req, req, res) {
 }
 
 
-function inserirResultadosQuestoes(req, req, req, res) {
 
-    var idQuestao = req.params.idQuestao;
-    var fkQuestionario = req.params.fkQuestionario;
-    var resultadoQUEST = req.params.resultadoQUEST;
+// function inserirResultadosQuestoes(req, req, req, res) {
 
-    console.log(`Recuperando questões em tempo real`);
+//     var idQuestao = req.params.idQuestao;
+//     var fkQuestionario = req.params.fkQuestionario;
+//     var resultadoQUEST = req.params.resultadoQUEST;
 
-    medidaModel.inserirResultadosQuestoes(idQuestao, fkQuestionario,resultadoQUEST).then(function (resultado) {
-        if (resultado.length > 0) {
-            res.status(200).json(resultado);
-        } else {
-            res.status(204).send("Nenhum resultado encontrado!")
-        }
-    }).catch(function (erro) {
-        console.log(erro);
-        console.log("Houve um erro ao buscar as ultimas medidas.", erro.sqlMessage);
-        res.status(500).json(erro.sqlMessage);
-    });
-}
+//     console.log(`Recuperando questões em tempo real`);
+
+//     medidaModel.inserirResultadosQuestoes(idQuestao, fkQuestionario,resultadoQUEST).then(function (resultado) {
+//         if (resultado.length > 0) {
+//             res.status(200).json(resultado);
+//         } else {
+//             res.status(204).send("Nenhum resultado encontrado!")
+//         }
+//     }).catch(function (erro) {
+//         console.log(erro);
+//         console.log("Houve um erro ao buscar as ultimas medidas.", erro.sqlMessage);
+//         res.status(500).json(erro.sqlMessage);
+//     });
+// }
 
 module.exports = {
-    inserirResultadosQuestionarioUsuario,
-    inserirResultadosQuestoes
+    inserirResultadosQuestionarioUsuario
+    // inserirResultadosQuestoes
 
 }
 

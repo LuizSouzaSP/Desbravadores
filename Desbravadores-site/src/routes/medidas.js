@@ -11,9 +11,9 @@ var QuestoesController = require("../controllers/medidaController");
 // router.get("/tempo-real/:idAquario", function (req, res) {
 //     medidaController.buscarMedidasEmTempoReal(req, res);
 // })
- router.get("/questoes/:idQuestoes", function (req, res) {
-    QuestoesController.inserirResultadosQuestoes(req, res);
-})
+//  router.get("/questoes/:idQuestoes", function (req, res) {
+//     QuestoesController.inserirResultadosQuestoes(req, res);
+// })
  router.get("/questionario/:idQuestionario"), function (req, res) {
     QuestoesController.inserirResultadosQuestionarioUsuario(req, res)
  }
