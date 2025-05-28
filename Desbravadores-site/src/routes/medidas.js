@@ -14,8 +14,8 @@ var QuestoesController = require("../controllers/medidaController");
 //  router.get("/questoes/:idQuestoes", function (req, res) {
 //     QuestoesController.inserirResultadosQuestoes(req, res);
 // })
- router.get("/questionario/:idQuestionario"), function (req, res) {
-    QuestoesController.inserirResultadosQuestionarioUsuario(req, res)
+ router.get("/resultado"), function (req, res) {
+    QuestoesController.pegarResultadosQuestionarioUsuario(req, res)
  }
 
 

@@ -1,9 +1,17 @@
 var database = require("../database/config");
 
-function inserirResultadosQuestionarioUsuario(idQuestionario, idUsuario, idQuestao, resultado) {
+function pegarResultadosQuestionarioUsuario(idusuario) {
 
-    var instrucaoSql = `INSERT INTO questionario_usuario (fkquestionario, fkusuario, fkquestao, resultado)
-    VALUES(${idQuestionario}, ${idUsuario}, ${idQuestao}, ${resultado})`;
+    var instrucaoSql = `SELECT u.nome AS Usuario,
+q.idquestionario AS Questionario,
+qu.resultado AS Certas,
+(((SELECT resultado FROM questionario_usuario WHERE fkUsuario = ${idusuario}) - (SELECT count(*) FROM questoes)) * -1) Erradas
+FROM questionario_usuario qu
+INNER JOIN usuario u
+ON u.idusuario = qu.fkUsuario
+INNER JOIN questionario q
+ON q.idquestionario = qu.fkQuestionario
+WHERE u.idusuario = ${idusuario};`;
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
@@ -17,19 +25,9 @@ function inserirResultadosQuestionarioUsuario(idQuestionario, idUsuario, idQuest
 //     return database.executar(instrucaoSql);
 // }
 
-function Usuario(email, senha) {
-    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function entrar(): ", email, senha)
-    var instrucaoSql = `
-        SELECT idUsuario FROM usuario WHERE email = '${email}' AND senha = '${senha}';
-    `;
-    console.log("Executando a instrução SQL: \n" + instrucaoSql);
-    return database.executar(instrucaoSql);
-}
-
 module.exports = {
-    inserirResultadosQuestionarioUsuario,
-    Usuario
-    // inserirResultadosQuestoes
+    pegarResultadosQuestionarioUsuario
+    // inserirResultadosQuestoesx 
 }
 
 

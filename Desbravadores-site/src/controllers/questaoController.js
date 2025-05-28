@@ -4,11 +4,11 @@ var questaoModel = require("../models/questaoModel");
 function inserirResultadosQuestionarioUsuario(req, res) {
     // variavel para recuperar os valores do arquivo quiz
     var idQuestionario = req.params.idQuestionario;
-    var idUsuario = req.body.idUsuarioServer;
+    var idusuario = req.body.idusuarioServer;
     var resultado = req.body.resultadoServer;
 
 
-    questaoModel.inserirResultadosQuestionarioUsuario(idQuestionario, idUsuario, resultado).then(function (resultado) {
+    questaoModel.inserirResultadosQuestionarioUsuario(idQuestionario, idusuario, resultado).then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {

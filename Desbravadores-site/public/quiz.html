@@ -31,7 +31,6 @@
     <div id="pontuacaoEJogo">
             <div class="botaoIniciar">
                 <button id="btnIniciarQuiz" onclick="iniciarQuiz()">INICIAR QUIZ</button>
-                <span id="b_usuario"></span>
             </div>
         <div class="conteiner-box">
         <div class="questoes" id="questoes">
@@ -409,8 +408,8 @@
 
 <script>
 
-    var id = sessionStorage.ID_USUARIO;
-    console.log(id);
+    var idusuario = sessionStorage.ID_USUARIO;
+    console.log(idusuario);
 
     const resultados = [{
         pergunta1: 0,
@@ -564,42 +563,62 @@
         if(pergunta1.value === "alternativaB"){
             resultados.pergunta1++
             pontuacao++
+        } else{
+            erradas++
         }
         if(pergunta2.value === "alternativaC"){
             resultados.pergunta2++
             pontuacao++
+        } else {
+            erradas++
         }
         if(pergunta3.value === "alternativaC"){
             resultados.pergunta3++
             pontuacao++
+        } else {
+            erradas++
         }
         if(pergunta4.value === "alternativaD"){
             resultados.pergunta4++
             pontuacao++
+        } else {
+            erradas++
         }
         if(pergunta5.value === "alternativaA"){
             resultados.pergunta5++
             pontuacao++
+        } else {
+            erradas++
         }
         if(pergunta6.value === "alternativaC"){
             resultados.pergunta6++
             pontuacao++
+        } else {
+            erradas++
         }
         if(pergunta7.value === "alternativaC"){
             resultados.pergunta7++
             pontuacao++
+        } else {
+            erradas++
         }
         if(pergunta8.value === "alternativaD"){
             resultados.pergunta8++
             pontuacao++
+        } else {
+            erradas++
         }
         if(pergunta9.value === "alternativaB"){
             resultados.pergunta9++
             pontuacao++
+        } else {
+            erradas++
         }
         if(pergunta10.value === "alternativaB"){
             resultados.pergunta10++
             pontuacao++
+        } else {
+            erradas++
         }
         console.log(resultados.pergunta1, resultados.pergunta2, resultados.pergunta3
             , resultados.pergunta4
@@ -643,7 +662,6 @@
         //         erradas++
         //     }
         // }
-        erradas = (pontuacao - questoes)
 
         console.log(`São ${pontuacao} respostas certas`)
 
@@ -682,7 +700,7 @@
         },
         body: JSON.stringify({
             idQuestionarioServer: idQuestionario,
-            idUsuarioServer: idUsuario,
+            idusuarioServer: idusuario,
             resultadoServer: pontuacao
         })
     })

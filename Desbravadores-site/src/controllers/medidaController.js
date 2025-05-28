@@ -1,16 +1,14 @@
 
 var medidaModel = require("../models/medidaModel");
 
-function inserirResultadosQuestionarioUsuario(req, res) {
+function pegarResultadosQuestionarioUsuario(req, res) {
     // variavel para recuperar os valores do arquivo quiz
-    var idQuestionario = req.body.idQuestionarioServer;
-    var idUsuario = req.body.idUsuarioServer;
+    // var idQuestionario = req.body.idQuestionarioServer;
+    var idusuario = req.body.idusuarioServer;
     // var idQuestao = req.body.idQuestaoServer;
-    var resultado = req.body.resultadoServer;
+    // var resultado = req.body.resultadoServer;
 
-    console.log(` ${idQuestionario}`);
-
-    medidaModel.inserirResultadosQuestionarioUsuario(idQuestionario, idUsuario, resultado).then(function (resultado) {
+    medidaModel.pegarResultadosQuestionarioUsuario(idusuario).then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
@@ -47,7 +45,7 @@ function inserirResultadosQuestionarioUsuario(req, res) {
 // }
 
 module.exports = {
-    inserirResultadosQuestionarioUsuario
+    pegarResultadosQuestionarioUsuario
     // inserirResultadosQuestoes
 
 }
