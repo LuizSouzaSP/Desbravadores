@@ -14,7 +14,13 @@ function inserirResultadosQuestionarioUsuario(req, res) {
         } else {
             res.status(204).send("Nenhum resultado encontrado!")
         }
-    }).catch(function (erro) {
+    }).then(() => {
+        res.status(200).json({
+            resultado: resultado,
+            idQuestionario: idQuestionario
+        })
+    })
+    .catch(function (erro) {
         console.log(erro);
         console.log("Houve um erro ao buscar os ultimos questionarios.", erro.sqlMessage);
         res.status(500).json(erro.sqlMessage);

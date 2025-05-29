@@ -405,13 +405,16 @@
 
 </html>
 <script src="js/sessao.js"></script>
-
+<script src="js/dadosQuiz.js"></script>
 <script>
 
     var idusuario = sessionStorage.ID_USUARIO;
     console.log(idusuario);
 
-    const resultados = [{
+    console.log(`Questionário selecionado: ${sessionStorage.ID_QUESTIONARIO},${sessionStorage.RESULTADO}`);
+
+    const resultados = {
+        id: idusuario,
         pergunta1: 0,
         pergunta2: 0,
         pergunta3: 0,
@@ -422,8 +425,7 @@
         pergunta8: 0,
         pergunta9: 0,
         pergunta10: 0
-
-    }]
+    }
 
     let idQuestionario = 1
 
@@ -630,6 +632,8 @@
             , resultados.pergunta10
         )
 
+
+
         finalizarJogo()
     }
 
@@ -688,6 +692,7 @@
 
         spanCertas.innerHTML = `${pontuacao}`
         spanErradas.innerHTML = `${erradas}`
+        var resultado = pontuacao
 
         // btnProx.disabled = true
         btnSubmeter.disabled = true
@@ -701,13 +706,28 @@
         body: JSON.stringify({
             idQuestionarioServer: idQuestionario,
             idusuarioServer: idusuario,
-            resultadoServer: pontuacao
+            resultadoServer: resultado
         })
     })
+    .then(response => {
+        if(!response.ok){
+            throw new Error('Erro na resposta do servidor:' +response.status)
+        }
+        if (response.status === 204) {
+            return {}
+        }
+        return response.json();
+        
+    })
+    .then (json => {
+            console.log("ESTOU NO THEN DO finalizarJogo()!")
+                console.log(json);
+                console.log(JSON.stringify(json));
+                sessionStorage.RESULTADO = json.resultado;
+                sessionStorage.ID_QUESTIONARIO = json.idQuestionario;
+                console.log(json.resultado)
+        })
 
-    }
-    
-    // function salvar() {
-            
-    // }
+}
+
 </script>
