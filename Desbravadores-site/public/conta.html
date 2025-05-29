@@ -71,13 +71,15 @@
     // let questionario = [];
     Questionario;
 
-    b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
-    var pontuacao = sessionStorage.RESULTADO;
+    b_usuario.innerHTML = sessionStorage.NOME_USUARIO
+
 
     let proximaAtualizacao;
-function obterDadosGrafico(resultado) {
 
-alterarTitulo(idQuestionario)
+    obterDadosGrafico(sessionStorage.ID_USUARIO);
+function obterDadosGrafico(idusuario) {
+
+// alterarTitulo(idQuestionario)
 
 if (proximaAtualizacao != undefined) {
     clearTimeout(proximaAtualizacao);
@@ -90,7 +92,7 @@ if (proximaAtualizacao != undefined) {
 //   .catch(err => {
 //     console.log(err);
 //   });
-fetch(`http://localhost:3333/medidas/resultado`, {
+fetch(`/medidas/resultado/${idusuario}`, {
     method: 'GET',
     headers: {
         "Content-Type": "application/json"
@@ -99,9 +101,12 @@ fetch(`http://localhost:3333/medidas/resultado`, {
     if (response.ok) {
         response.json().then(function (resposta) {
             console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-            console.log(resposta)
+            console.log(resposta[0].Certas)
+            console.log(resposta[0].Erradas)
+            
 
-            plotarGrafico(resposta, resultado);
+            plotarGrafico(resposta);
+            
         });
     } else {
         console.error('Nenhum dado encontrado ou erro na API');
@@ -134,7 +139,7 @@ console.log('iniciando plotagem do gráfico...');
 
 // Criando estrutura para plotar gráfico - labels
 const idusuairo = sessionStorage.getItem('ID_USUARIO');
-const dados = []
+const dados = [resultado[0].Certas, resultado[0].Erradas]
 
 
 // Criando estrutura para plotar gráfico - dados
@@ -163,7 +168,7 @@ const ctx = document.getElementById('myChart');
 
 console.log('----------------------------------------------')
 console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
-console.log(resposta)
+console.log(resposta[0])
 
 // Inserindo valores recebidos em estrutura para plotar o gráfico
 

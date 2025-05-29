@@ -76,10 +76,14 @@ a{
 .dash {
     width: 100%;
 }
-div#btnAquario {
-    border: 20px solid;
-    width: 97%;
+#btnAquario {
+    width: 30vw;
     display: flex;
     align-items: center;
     height: 60%;
+    height: 50vh;
+    margin-left: 25vw;
+    justify-content: center;
+    background-color: black;
+    border-radius: 20px;
 }

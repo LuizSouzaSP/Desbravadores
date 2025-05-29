@@ -11,7 +11,7 @@ INNER JOIN usuario u
 ON u.idusuario = qu.fkUsuario
 INNER JOIN questionario q
 ON q.idquestionario = qu.fkQuestionario
-WHERE u.idusuario = ${idusuario};`;
+WHERE u.idusuario = '${idusuario}';`;
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);

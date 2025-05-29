@@ -719,14 +719,14 @@
         return response.json();
         
     })
-    .then (json => {
-            console.log("ESTOU NO THEN DO finalizarJogo()!")
-                console.log(json);
-                console.log(JSON.stringify(json));
-                sessionStorage.RESULTADO = json.resultado;
-                sessionStorage.ID_QUESTIONARIO = json.idQuestionario;
-                console.log(json.resultado)
-        })
+    // .then (json => {
+    //         console.log("ESTOU NO THEN DO finalizarJogo()!")
+    //             console.log(json);
+    //             console.log(JSON.stringify(json));
+    //             sessionStorage.RESULTADO = json.resultado;
+    //             sessionStorage.ID_QUESTIONARIO = json.idQuestionario;
+    //             console.log(json.resultado)
+    //     })
 
 }
 

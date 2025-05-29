@@ -1,14 +1,9 @@
-
 var medidaModel = require("../models/medidaModel");
 
-function pegarResultadosQuestionarioUsuario(req, res) {
-    // variavel para recuperar os valores do arquivo quiz
-    // var idQuestionario = req.body.idQuestionarioServer;
+function idadeUsuario(req, res) {
     var idusuario = req.params.idusuario;
-    // var idQuestao = req.body.idQuestaoServer;
-    // var resultado = req.body.resultadoServer;
 
-    medidaModel.pegarResultadosQuestionarioUsuario(idusuario).then(function (resultado) {
+    medidaModel.idadeUsuario(idusuario).then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
@@ -23,6 +18,5 @@ function pegarResultadosQuestionarioUsuario(req, res) {
 
 
 module.exports = {
-    pegarResultadosQuestionarioUsuario
+    idadeUsuario
 }
-
