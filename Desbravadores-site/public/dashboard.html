@@ -59,8 +59,35 @@
 </html>
 <script src="js/sessao.js"></script>
 <script>
-;
-    let idade = 11;
+
+    var idusuario = sessionStorage.ID_USUARIO
+    var idade = 0
+    function obterIdade(){
+    fetch(`/idade/idadeResultado/${idusuario}`, {
+    method: 'GET',
+    headers: {
+        "Content-Type": "application/json"
+    },   
+}).then(function (response) {
+    if (response.ok) {
+        response.json().then(function (resposta) {
+            console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+            console.log(resposta[0].idade)
+            idade += (resposta[0].idade)
+
+            plotarGrafico(resposta);
+            
+        });
+    } else {
+        console.error('Nenhum dado encontrado ou erro na API');
+    }
+})
+    .catch(function (error) {
+        console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+    });
+
+    }
+
     if (idade == 10){
         idCompanheiro.style.opacity = "0.3";
         idPesquisador.style.opacity = "0.3";
