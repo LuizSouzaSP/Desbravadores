@@ -8,17 +8,16 @@ function inserirResultadosQuestionarioUsuario(req, res) {
     var resultado = req.body.resultadoServer;
 
 
-    questaoModel.inserirResultadosQuestionarioUsuario(idQuestionario, idusuario, resultado).then(function (resultado) {
+    questaoModel.inserirResultadosQuestionarioUsuario(idQuestionario, idusuario, resultado)
+    .then(() => {
         if (resultado.length > 0) {
-            res.status(200).json(resultado);
-        } else {
-            res.status(204).send("Nenhum resultado encontrado!")
-        }
-    }).then(() => {
-        res.status(200).json({
-            resultado: resultado,
-            idQuestionario: idQuestionario
-        })
+            res.status(200).json({
+                resultado: resultado,
+                idQuestionario: idQuestionario
+            })
+            } else {
+                res.status(204).send("Nenhum resultado encontrado!")
+            }
     })
     .catch(function (erro) {
         console.log(erro);

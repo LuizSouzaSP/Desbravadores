@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br"> 
+<html lang="pt-br">
 
 <head>
     <link rel="shortcut icon" href="../assets/icon/favicon2.ico" type="image/x-icon">
@@ -7,6 +7,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>dashGeral | Aventura</title>
+    <style>
+        body{
+            background-color: violet;
+        }
+    </style>
 
     
     <script src="../js/sessao.js"></script>
@@ -44,6 +49,27 @@
     Questionario;
 
     let proximaAtualizacao;
+    
+    // let nnhum = "NENHUM"
+    // let ALVORADA = "ALVORADA"
+    // let ANTARES = "ANTARES"
+    // let ÁRVORE_DA_VILA = "ÁRVORE DA VILA"
+    // let AURORA_BOREAL = "AURORA BOREAL"
+    // let CENTAURO = "CENTAURO"
+    // let ESTRELA_DO_ORIENTE = "ESTRELA DO ORIENTE"
+    // let EVEREST_MASTER = "EVEREST MASTER"
+    // let GAVIÃO_REAL = "GAVIÃO REAL"
+    // let GEDEONES_DE_LOS_ANDES = "GEDEONES DE LOS ANDES"
+    // let NOVA_SEMENTE = "NOVA SEMENTE"
+    // let PIONEIROS_DO_CAMBUCI = "PIONEIROS DO CAMBUCI"
+    // let SOL_NASCENTE = "SOL NASCENTE"
+    // let ÁGUIAS_DE_HAIA = "ÁGUIAS DE HAIA"
+    // let ALMIRANTE_TAMANDARÉ = "ALMIRANTE TAMANDARÉ "
+    // let ALPHA_SIRIÚS = "ALPHA SIRIÚS"
+    // let ARCO_ÍRIS = "ARCO-ÍRIS"
+    // let BETEL = "BETEL"
+    // let BORBA_GATO = "BORBA GATO"
+    // let CAMPESTRE = "CAMPESTRE"
 
     obterDadosGrafico(sessionStorage.ID_USUARIO);
 function obterDadosGrafico() {
@@ -53,7 +79,7 @@ function obterDadosGrafico() {
 if (proximaAtualizacao != undefined) {
     clearTimeout(proximaAtualizacao);
 }
-fetch(``, {
+fetch(`/dash/buscar`, {
     method: 'GET',
     headers: {
         "Content-Type": "application/json"
@@ -62,8 +88,8 @@ fetch(``, {
     if (response.ok) {
         response.json().then(function (resposta) {
             console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-            console.log(resposta[0].clube)
-            console.log(resposta[0].qtd)
+            console.log(resposta[1].clube)
+            console.log(resposta[1].qtd)
             
 
             plotarGrafico(resposta);
@@ -77,13 +103,16 @@ fetch(``, {
         console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
     });
 }
-function plotarGrafico(resultado) {
+function plotarGrafico() {
 
 console.log('iniciando plotagem do gráfico...');
 
 // Criando estrutura para plotar gráfico - labels
 const idusuairo = sessionStorage.getItem('ID_USUARIO');
-const dados = [resultado[0].clube, resultado[0].qtd]
+const clube = dadoGrafico.map(item => item.clube)
+const qtd = dadosGrafico.map(item => item.qtd)
+
+console.log(dados)
 
 
 // Criando estrutura para plotar gráfico - dados
@@ -92,12 +121,12 @@ const ctx = document.getElementById('myChart');
   new Chart(ctx, {
     type: 'pie',
     data: {
-      labels: ['Certas', 'Erradas'],
+      labels: clube,
       datasets: [{
-        label: 'Questionario 1',
-        data: dados,
+        label: 'clubes',
+        data: qtd,
         borderWidth: 1,
-        backgroundColor: ['green', 'red']
+        backgroundColor: ['red', 'green', 'orange', 'blue', 'purple', 'gray', 'yellow', 'white', 'black', 'pink', 'violet', 'cyan', 'burlywood', 'brown', 'chartreuse', 'darkgray', 'darksalmon', 'olive', 'maroon']
       }
     ]
     },
