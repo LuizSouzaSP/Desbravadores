@@ -1,9 +1,9 @@
-var medidaModel = require("../models/medidaModel");
+var idadeModel = require("../models/idadeModel");
 
 function idadeUsuario(req, res) {
     var idusuario = req.params.idusuario;
 
-    medidaModel.idadeUsuario(idusuario).then(function (resultado) {
+    idadeModel.idadeUsuario(idusuario).then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
@@ -11,7 +11,7 @@ function idadeUsuario(req, res) {
         }
     }).catch(function (erro) {
         console.log(erro);
-        console.log("Houve um erro ao buscar os ultimos questionarios.", erro.sqlMessage);
+        console.log("Houve um erro ao buscar a idade.", erro.sqlMessage);
         res.status(500).json(erro.sqlMessage);
     });
 }

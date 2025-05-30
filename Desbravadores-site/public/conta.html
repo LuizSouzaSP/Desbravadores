@@ -34,7 +34,7 @@
                 <ul class="nav-bar">
                     <li>
                         <div class="box">
-                            <a href="#">inicio</a>
+                            <a href="dashboard.html">inicio</a>
                         </div>
                     </li>
                     <li>
@@ -66,9 +66,6 @@
 </html>
 
 <script>
-    // let id = [];
-    // let usuario = [];
-    // let questionario = [];
     Questionario;
 
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO
@@ -84,14 +81,6 @@ function obterDadosGrafico(idusuario) {
 if (proximaAtualizacao != undefined) {
     clearTimeout(proximaAtualizacao);
 }
-// fetch(`http://localhost:3333/medidas/resultado?idusuario=${sessionStorage.getItem('ID_USUARIO')}`)
-//   .then(response => response.json())
-//   .then(data => {
-//     plotarGrafico(data);
-//   })
-//   .catch(err => {
-//     console.log(err);
-//   });
 fetch(`/medidas/resultado/${idusuario}`, {
     method: 'GET',
     headers: {
@@ -115,23 +104,6 @@ fetch(`/medidas/resultado/${idusuario}`, {
     .catch(function (error) {
         console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
     });
-    
-// fetch(`/medidas/resultado`, { cache: 'no-store' }).then(function (response) {
-//     if (response.ok) {
-//         response.json().then(function (resposta) {
-//             console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-//             resposta.reverse();
-//             console.log(resposta)
-
-//             plotarGrafico(resposta, resultado);
-//         });
-//     } else {
-//         console.error('Nenhum dado encontrado ou erro na API');
-//     }
-// })
-//     .catch(function (error) {
-//         console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-//     });
 }
 function plotarGrafico(resultado) {
 
@@ -184,64 +156,5 @@ console.log('----------------------------------------------')
 
 
 // Adicionando gráfico criado em div na tela
-
-
-// setTimeout(() => atualizarGrafico(idQuestionario, dados, myChart), 2000);
 }
-
-    // function atualizarGrafico(idQuestoes, dados, myChart) {
-
-
-
-    //     fetch(`/questoes/:${idQuestoes}`, { cache: 'no-store' }).then(function (response) {
-    //         if (response.ok) {
-    //             response.json().then(function (novoRegistro) {
-
-    //                 obterdados(idQuestoes);
-    //                 // alertar(novoRegistro, idAquario);
-    //                 console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
-    //                 console.log(`Dados atuais do gráfico:`);
-    //                 console.log(dados);
-
-    //                 let avisoCaptura = document.getElementById(`avisoCaptura${idAquario}`)
-    //                 avisoCaptura.innerHTML = ""
-
-
-    //                 if (novoRegistro[0].momento_grafico == dados.labels[dados.labels.length - 1]) {
-    //                     console.log("---------------------------------------------------------------")
-    //                     console.log("Como não há dados novos para captura, o gráfico não atualizará.")
-    //                     avisoCaptura.innerHTML = "<i class='fa-solid fa-triangle-exclamation'></i> Foi trazido o dado mais atual capturado pelo sensor. <br> Como não há dados novos a exibir, o gráfico não atualizará."
-    //                     console.log("Horário do novo dado capturado:")
-    //                     console.log(novoRegistro[0].momento_grafico)
-    //                     console.log("Horário do último dado capturado:")
-    //                     console.log(dados.labels[dados.labels.length - 1])
-    //                     console.log("---------------------------------------------------------------")
-    //                 } else {
-    //                     // tirando e colocando valores no gráfico
-    //                     dados.labels.shift(); // apagar o primeiro
-    //                     dados.labels.push(novoRegistro[0].momento_grafico); // incluir um novo momento
-
-    //                     dados.datasets[0].data.shift();  // apagar o primeiro de umidade
-    //                     dados.datasets[0].data.push(novoRegistro[0].umidade); // incluir uma nova medida de umidade
-
-    //                     dados.datasets[1].data.shift();  // apagar o primeiro de temperatura
-    //                     dados.datasets[1].data.push(novoRegistro[0].temperatura); // incluir uma nova medida de temperatura
-
-    //                     myChart.update();
-    //                 }
-
-    //                 // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-    //                 proximaAtualizacao = setTimeout(() => atualizarGrafico(idQuestoes, dados, myChart), 2000);
-    //             });
-    //         } else {
-    //             console.error('Nenhum dado encontrado ou erro na API');
-    //             // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-    //             proximaAtualizacao = setTimeout(() => atualizarGrafico(idQuestoes, dados, myChart), 2000);
-    //         }
-    //     })
-    //         .catch(function (error) {
-    //             console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-    //         });
-
-    // }
 </script>

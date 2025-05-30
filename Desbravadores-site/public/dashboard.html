@@ -22,10 +22,9 @@
                 </li>
                 <li>
                     <div class="box2">
-                        <a href="">Conta</a>
+                        <a href="conta.html">Conta</a>
                     </div>
                 </li>
-                <a href="./dashboard/cards.html">dash</a>
             </ul>
             <div id="cards">
                 <div class="Amigo" onclick="amigo()" id="idAmigo">
@@ -60,9 +59,10 @@
 <script src="js/sessao.js"></script>
 <script>
 
-    var idusuario = sessionStorage.ID_USUARIO
-    var idade = 0
-    function obterIdade(){
+
+obterIdade(sessionStorage.ID_USUARIO);
+
+function obterIdade(idusuario){
     fetch(`/idade/idadeResultado/${idusuario}`, {
     method: 'GET',
     headers: {
@@ -73,21 +73,22 @@
         response.json().then(function (resposta) {
             console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
             console.log(resposta[0].idade)
-            idade += (resposta[0].idade)
-
-            plotarGrafico(resposta);
-            
+            cards(resposta)
         });
     } else {
         console.error('Nenhum dado encontrado ou erro na API');
     }
 })
     .catch(function (error) {
-        console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+        console.error(`Erro ao obter idade: ${error.message}`);
     });
 
-    }
+}
+let idade = 0
 
+function cards(resultado){
+    idade = resultado[0].idade;
+  
     if (idade == 10){
         idCompanheiro.style.opacity = "0.3";
         idPesquisador.style.opacity = "0.3";
@@ -97,8 +98,8 @@
         idAmigo.style.cursor = "pointer";
 
         function amigo(){
-            location.href = '/classes/amigo.html' 
-    }
+            location.href = './classes/amigo.html' 
+        } 
     } else if (idade == 11){
         idAmigo.style.opacity = "0.3";
         idPesquisador.style.opacity = "0.3";
@@ -108,8 +109,9 @@
         idCompanheiro.style.cursor = "pointer";
 
         function companheiro(){
-            location.href = '/classes/companheiro.html' 
-    }
+            location.href = './classes/companheiro.html'
+        }
+
     } else if (idade == 12){
         idAmigo.style.opacity = "0.3";
         idCompanheiro.style.opacity = "0.3";
@@ -119,7 +121,7 @@
         idPesquisador.style.cursor = "pointer";
 
         function pesquisador(){
-            location.href = 'pesquisador.html'
+            location.href = './classes/pesquisador.html'
         }
     } else if (idade == 13){
         idAmigo.style.opacity = "0.3";
@@ -130,7 +132,7 @@
         idPioneiro.style.cursor = "pointer";
 
         function pioneiro(){
-            location.href = 'pioneiro.html'
+        location.href = './classes/pioneiro.html'
         }
     } else if (idade == 14){
         idAmigo.style.opacity = "0.3";
@@ -141,7 +143,7 @@
         idExcursionista.style.cursor = "pointer";
 
         function excursionista(){
-            location.href = 'excursionista.html'   
+        location.href = 'excursionista.html'   
         }
     } else if (idade == 15){
         idAmigo.style.opacity = "0.3";
@@ -152,26 +154,26 @@
         idGuia.style.cursor = "pointer";
         
         function guia(){
-            location.href = 'guia.html'
+        location.href = 'guia.html'
         }
-    } else {
+    } else if (idade >= 16){
     function amigo(){
-            location.href = 'amigo.html' 
+    location.href = './classes/amigo.html' 
     }
     function companheiro(){
-            location.href = 'amigo.html' 
+    location.href = './classes/companheiro.html'
     }
     function pesquisador(){
-            location.href = 'pesquisador.html'
+    location.href = './classes/pesquisador.html'
     }
     function pioneiro(){
-            location.href = 'pioneiro.html'
+    location.href = './classes/pioneiro.html'
     }
     function excursionista(){
-            location.href = 'excursionista.html'   
+   location.href = './classes/excursionista.html'   
     }
     function guia(){
-            location.href = 'guia.html'
+    location.href = './classes/guia.html'
     }
     idAmigo.style.cursor = "pointer";
     idCompanheiro.style.cursor = "pointer";
@@ -179,26 +181,26 @@
     idPioneiro.style.cursor = "pointer";
     idExcursionista.style.cursor = "pointer";
     idGuia.style.cursor = "pointer";
-
     }
-    // function cards(){
-    //     if (idade == 10){
-    //     } else if (idade == 11){
-    //         card.innerHTML = `Classe de companheiro`
-    //     } else if (idade == 12){
-    //         card.innerHTML = `Classe de pesquisador`
-    //     } else if (idade == 13){
-    //         card.innerHTML = `Classe de pioneiro`
-    //     } else if (idade == 14){
-    //         card.innerHTML = `Classe de excursionista`
-    //     } else if (idade == 15){
-    //         card.innerHTML = `Classe de guia`
-    //     } else if (idade >= 16){
-    //         card.innerHTML = `Todas as classes ou Agrupadas`
-    //     }
-    // }
-   
-    
-    
+}
 
+function amigo(){
+    location.href = './classes/amigo.html' 
+}
+function companheiro(){
+    location.href = './classes/companheiro.html'
+}
+function pesquisador(){
+    location.href = './classes/pesquisador.html'
+}
+function pioneiro(){
+    location.href = 'pioneiro.html'
+}
+function excursionista(){
+   location.href = 'excursionista.html'   
+}
+function guia(){
+    location.href = 'guia.html'
+}
+console.log(cards())
 </script>

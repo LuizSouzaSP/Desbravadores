@@ -656,7 +656,7 @@
             let textoParaMensagemFinal = null
             let classComCoresParaMensagemFinal = null
         let questoes = resultados.length
-        const porcentagemFinalDeAcertos = pontuacao / questoes
+        const porcentagemFinalDeAcertos = questoes - pontuacao
 
         // for(let i = 1;i <= 10;i++){
         //     const percorrer = `pergunta${i}`
@@ -696,7 +696,7 @@
 
         // btnProx.disabled = true
         btnSubmeter.disabled = true
-        btnConcluir.disabled = true
+        // btnConcluir.disabled = true
         // btnTentarNovamente.disabled = fals
         fetch(`http://localhost:3333/questao/questionario/1`, {
         method: 'POST',
@@ -711,23 +711,13 @@
     })
     .then(response => {
         if(!response.ok){
-            throw new Error('Erro na resposta do servidor:' +response.status)
+            throw new Error('Erro na resposta do servidor:' + response.status)
         }
         if (response.status === 204) {
             return {}
         }
         return response.json();
-        
     })
-    // .then (json => {
-    //         console.log("ESTOU NO THEN DO finalizarJogo()!")
-    //             console.log(json);
-    //             console.log(JSON.stringify(json));
-    //             sessionStorage.RESULTADO = json.resultado;
-    //             sessionStorage.ID_QUESTIONARIO = json.idQuestionario;
-    //             console.log(json.resultado)
-    //     })
-
 }
 
 </script>

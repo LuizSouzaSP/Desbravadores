@@ -50,7 +50,7 @@ body{
     height: 100vh;
     position: relative;
     background-color: black;
-    background-image:  url('');
+    background-image:  url('../assets/imgs/caminhada.png');
 }
 .conteiner-conteudo p{
     position: relative; 
@@ -67,7 +67,7 @@ body{
     width: 65%;
     height: 50%;
     align-items: center;
-    color: aliceblue;
+    color: rgb(255, 255, 255);
 
 }
 .gradiente {
@@ -181,13 +181,20 @@ body{
 
 .clubes img{
     width: 35vw;
-    margin-left: 33%;
+    
+}
+.clubes-img {
+    width: 100%;
+    margin-top: 10vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
 /* FOOTER */
 
 .footer {
-    height: 30vh;
+    height: 20vh;
     width: 100%;
     background-color: #1850ac;
     display: flex;
