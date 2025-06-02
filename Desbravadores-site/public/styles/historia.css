@@ -172,12 +172,26 @@ body{
 }
 
 .linha-tempo .gradiente {
-    position: relative;
-    width: 100%;
-    height: 25vh;
-    top: 0.1vh;
+    position: hidden;
+    width: 20%;
+    height: 60vh;
 
-    background: linear-gradient(to bottom, transparent,#FDD500);
+    display: flex;
+    transform: translateY(-6vw) translateX(20vw);
+    background: linear-gradient(to left, transparent, #0A3880);
+}
+.linha-tempo .gradiente2 {
+    position: hidden;
+    width: 20%;
+    height: 60vh;
+
+    display: flex;
+    transform: translateY(-15vw) translateX(60vw);
+    background: linear-gradient(to right, transparent, #0A3880);
+}
+hr {
+    width: 50vw;
+    transform: translateY(13vw)
 }
 .anos {
     height: 100%;
@@ -185,6 +199,8 @@ body{
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    color: aliceblue;
+    position: absolute;
 }
 
 .anos .conteudo {
@@ -192,6 +208,7 @@ body{
     display: flex;
     
     overflow: auto;
+    scrollbar-color: #FDD500 #0A3880;
 }
 .anos .conteudo .box{
     margin-right: 10%;
@@ -220,16 +237,11 @@ body{
 .anos .conteudo .box9{
     margin-right: 15%;
 }
-.anos .conteudo .box10{
-    margin-right: 15%;
+
+.conteudo-ano{
+    width: 100%;
 }
-.anos .conteudo .box p{
-    opacity: 0;
-    transition: 0.3s ease-in-out;
-}
-.anos .conteudo .box:hover p{
-    opacity: 100%;
-}
+
 /* FOOTER */
 
 .footer {

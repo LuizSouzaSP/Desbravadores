@@ -1,0 +1,12 @@
+body{
+    background-color: #0A3880;
+}
+.conteiner {
+    display: flex;
+    justify-content: center;
+}
+.dash {
+    width: 30vw;
+    background-color: black;
+    border-radius: 20px;
+}

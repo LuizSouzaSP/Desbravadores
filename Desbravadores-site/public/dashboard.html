@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Pagina inicial | Aventura</title>
     <link rel="stylesheet" href="styles/dashboard.css">
 </head>
 <body>
@@ -25,29 +25,34 @@
                         <a href="conta.html">Conta</a>
                     </div>
                 </li>
+                <li>
+                    <div class="box3">
+                        <a href="index.html">Sair</a>
+                    </div>
+                </li>
             </ul>
             <div id="cards">
-                <div class="Amigo" onclick="amigo()" id="idAmigo">
+                <div class="Amigo" id="idAmigo">
                     <img src="assets/imgs/ClasseAmigo.jpeg" alt="">
                     <h2>Classe de Amigo</h2>
                 </div>
-                <div class="Companheiro" onclick="companheiro()" id="idCompanheiro">
+                <div class="Companheiro" id="idCompanheiro">
                     <img src="assets/imgs/ClasseCompanheiro.jpeg" alt="">
                     <h2>Classe de Companheiro</h2>
                 </div>
-                <div class="Pesquisador" onclick="pesquisador()" id="idPesquisador">
+                <div class="Pesquisador" id="idPesquisador">
                     <img src="assets/imgs/ClassePesquisador.jpeg" alt="">
                     <h2>Classe de Pesquisador</h2>
                 </div>
-                <div class="Pioneiro" onclick="pioneiro()" id="idPioneiro">
+                <div class="Pioneiro" id="idPioneiro">
                     <img src="assets/imgs/ClassePioneiro.jpeg" alt="">
                     <h2>Classe de Pioneiro</h2>
                 </div>
-                <div class="Excursionista" onclick="excursionista()" id="idExcursionista">
+                <div class="Excursionista" id="idExcursionista">
                     <img src="assets/imgs/ClasseExcursionista.jpeg" alt="">
                     <h2>Classe de Excursionista</h2>
                 </div>
-                <div class="Guia" onclick="guia()" id="idGuia">
+                <div class="Guia" id="idGuia">
                     <img src="assets/imgs/ClasseGuia.jpeg" alt="">
                     <h2>Classe de Guia</h2>
                 </div>
@@ -74,6 +79,7 @@ function obterIdade(idusuario){
             console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
             console.log(resposta[0].idade)
             cards(resposta)
+            pioneiro(resposta)
         });
     } else {
         console.error('Nenhum dado encontrado ou erro na API');
@@ -97,9 +103,9 @@ function cards(resultado){
         idGuia.style.opacity = "0.3";
         idAmigo.style.cursor = "pointer";
 
-        function amigo(){
-            location.href = './classes/amigo.html' 
-        } 
+        idAmigo.onclick = () => {
+            location.href = './classes/amigo.html'
+        }
     } else if (idade == 11){
         idAmigo.style.opacity = "0.3";
         idPesquisador.style.opacity = "0.3";
@@ -108,7 +114,7 @@ function cards(resultado){
         idGuia.style.opacity = "0.3";
         idCompanheiro.style.cursor = "pointer";
 
-        function companheiro(){
+        idCompanheiro.onclick = () => {
             location.href = './classes/companheiro.html'
         }
 
@@ -120,7 +126,7 @@ function cards(resultado){
         idGuia.style.opacity = "0.3";
         idPesquisador.style.cursor = "pointer";
 
-        function pesquisador(){
+        idPesquisador.onclick = () => {
             location.href = './classes/pesquisador.html'
         }
     } else if (idade == 13){
@@ -131,8 +137,8 @@ function cards(resultado){
         idGuia.style.opacity = "0.3";
         idPioneiro.style.cursor = "pointer";
 
-        function pioneiro(){
-        location.href = './classes/pioneiro.html'
+        idPioneiro.onclick = () => {
+            location.href = './classes/pioneiro.html'
         }
     } else if (idade == 14){
         idAmigo.style.opacity = "0.3";
@@ -142,8 +148,8 @@ function cards(resultado){
         idGuia.style.opacity = "0.3";
         idExcursionista.style.cursor = "pointer";
 
-        function excursionista(){
-        location.href = 'excursionista.html'   
+        idExcursionista.onclick = () => {
+            location.href = './classes/excursionista.html'
         }
     } else if (idade == 15){
         idAmigo.style.opacity = "0.3";
@@ -153,27 +159,28 @@ function cards(resultado){
         idExcursionista.style.opacity = "0.3";
         idGuia.style.cursor = "pointer";
         
-        function guia(){
-        location.href = 'guia.html'
+        idGuia.onclick = () => {
+            location.href = './classes/guia.html'
         }
     } else if (idade >= 16){
-    function amigo(){
-    location.href = './classes/amigo.html' 
+    
+    idAmigo.onclick = () => {
+        location.href = './classes/amigo.html'
     }
-    function companheiro(){
-    location.href = './classes/companheiro.html'
+    idCompanheiro.onclick = () => {
+        location.href = './classes/companheiro.html'
     }
-    function pesquisador(){
-    location.href = './classes/pesquisador.html'
+    idPesquisador.onclick = () => {
+        location.href = './classes/pesquisador.html'
     }
-    function pioneiro(){
-    location.href = './classes/pioneiro.html'
+    idPioneiro.onclick = () => {
+        location.href = './classes/pioneiro.html'
     }
-    function excursionista(){
-   location.href = './classes/excursionista.html'   
+    idExcursionista.onclick = () => {
+        location.href = './classes/excursionista.html'
     }
-    function guia(){
-    location.href = './classes/guia.html'
+    idGuia.onclick = () => {
+        location.href = './classes/guia.html'
     }
     idAmigo.style.cursor = "pointer";
     idCompanheiro.style.cursor = "pointer";
@@ -184,23 +191,5 @@ function cards(resultado){
     }
 }
 
-function amigo(){
-    location.href = './classes/amigo.html' 
-}
-function companheiro(){
-    location.href = './classes/companheiro.html'
-}
-function pesquisador(){
-    location.href = './classes/pesquisador.html'
-}
-function pioneiro(){
-    location.href = 'pioneiro.html'
-}
-function excursionista(){
-   location.href = 'excursionista.html'   
-}
-function guia(){
-    location.href = 'guia.html'
-}
 console.log(cards())
 </script>

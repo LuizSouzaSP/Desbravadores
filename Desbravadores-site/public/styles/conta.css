@@ -22,6 +22,7 @@ body{
     list-style-type: none;
     border-bottom-right-radius: 20px;
     border-top-right-radius: 20px;
+    position: fixed;
 }
 a{
     text-decoration: none;
@@ -73,18 +74,71 @@ a{
     position: relative;
     top: 1.3vh;
 }
+.box3 {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    height: 5vh;
+    width: 10vw;
+    background-color: #FDD500;
+    border-radius: 40px;
+
+    
+}
+.box3 a{
+    position: relative;
+    top: 1.3vh;
+}
 /* DASH */
 .dash {
     width: 100%;
+    display: flex;
+    justify-content: center;
 }
-#btnAquario {
+#GraphQuestionario {
     width: 30vw;
     display: flex;
     align-items: center;
     height: 60%;
     height: 50vh;
-    margin-left: 25vw;
     justify-content: center;
-    background-color: black;
+    background-color: aliceblue;
     border-radius: 20px;
+    transition: 0.3s ease-in-out;
+}
+.usuario {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.hello {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    color: aliceblue;
+    flex-direction: column;
+    
+}
+.dashquestionario {
+    margin-top: 100px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    color: aliceblue;
+    flex-direction: column;
+}
+.nomeUsuario{
+    transition: 0.3s ease-in-out;
+}
+.nomeUsuario:hover {
+    font-size: 30px;
+}
+.p_classe {
+    transition: 0.3s ease-in-out;
+}
+.p_classe:hover {
+    font-size: 22px;
+}
+#GraphQuestionario:hover {
+    padding: 20px;
 }

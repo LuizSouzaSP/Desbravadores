@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Cal+Sans&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
 body{
     margin: 0;
+    font-family: "Cal Sans", 'Arial';
 }
 
 /* NAVBAR */
@@ -65,6 +67,21 @@ a{
     
 }
 .box2 a{
+    position: relative;
+    top: 1.3vh;
+}
+.box3 {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    height: 5vh;
+    width: 10vw;
+    background-color: #FDD500;
+    border-radius: 40px;
+
+    
+}
+.box3 a{
     position: relative;
     top: 1.3vh;
 }

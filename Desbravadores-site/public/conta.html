@@ -47,13 +47,20 @@
                             <a href="#">Conta</a>
                         </div>
                     </li>
+                    <li>
+                    <div class="box3">
+                        <a href="index.html">Sair</a>
+                    </div>
+                </li>
                 </ul>
                 <div class="usuario">
                     <div class="hello">
-                        <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
+                        <h3 class="nomeUsuario">Olá, <span id="b_usuario">usuário</span>!</h3>
+                        <p class="p_classe">Você é da classe de <span id="classe"></span></p>
                     </div>
+                    <div class="dashquestionario"><span>Dashboard do questionario</span></div>
                     <div class="dash">
-                        <div class="btns-dash" id="btnAquario">
+                        <div class="btns-dash" id="GraphQuestionario">
                             <canvas id="myChart"></canvas>
                         </div>
                     </div>
@@ -69,9 +76,12 @@
     Questionario;
 
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO
-
+    
+    obterIdade(sessionStorage.ID_USUARIO);
 
     let proximaAtualizacao;
+    let idade = 0;
+    let Classes = ''
 
     obterDadosGrafico(sessionStorage.ID_USUARIO);
 function obterDadosGrafico(idusuario) {
@@ -140,14 +150,12 @@ const ctx = document.getElementById('myChart');
 
 console.log('----------------------------------------------')
 console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
-console.log(resposta[0])
+console.log(resultado[0])
 
 // Inserindo valores recebidos em estrutura para plotar o gráfico
 
 console.log('----------------------------------------------')
 console.log('O gráfico será plotado com os respectivos valores:')
-console.log('Labels:')
-console.log(labels)
 console.log('Dados:')
 console.log(dados.datasets)
 console.log('----------------------------------------------')
@@ -156,5 +164,61 @@ console.log('----------------------------------------------')
 
 
 // Adicionando gráfico criado em div na tela
+}
+function obterIdade(idusuario){
+    fetch(`/idade/idadeResultado/${idusuario}`, {
+    method: 'GET',
+    headers: {
+        "Content-Type": "application/json"
+    },   
+}).then(function (response) {
+    if (response.ok) {
+        response.json().then(function (resposta) {
+            console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+            console.log(resposta[0].idade)
+            cards(resposta)
+        });
+    } else {
+        console.error('Nenhum dado encontrado ou erro na API');
+    }
+})
+    .catch(function (error) {
+        console.error(`Erro ao obter idade: ${error.message}`);
+    });
+
+}
+
+
+function cards(resultado){
+    idade = resultado[0].idade;
+    console.log(idade)
+    if (idade == 10){
+        Classes = 'Amigo'
+        classe.style.color = 'cyan'
+        classe.innerHTML = (Classes);
+    } else if (idade == 11){
+        Classes = 'Companheiro'
+        classe.style.color = 'red'
+        classe.innerHTML = (Classes);
+    } else if (idade == 12){
+        Classes = 'Pesquisador'
+        classe.style.color = 'green'
+        classe.innerHTML = (Classes);
+    } else if (idade == 13){
+        Classes = 'Pioneiro'
+        classe.style.color = 'gray'
+        classe.innerHTML = (Classes);
+    } else if (idade == 14){
+        Classes = 'Excursionista'
+        classe.style.color = 'purple'
+        classe.innerHTML = (Classes);
+    } else if (idade == 15){
+        Classes = 'Guia'
+        classe.style.color = 'yellow'
+        classe.innerHTML = (Classes);
+    } else if (idade >= 16){
+        Classes = 'Amigo, Companheiro, Pesquisador, Pioneiro, Excursionista, Guia'
+        classe.innerHTML = (Classes);
+    }
 }
 </script>
