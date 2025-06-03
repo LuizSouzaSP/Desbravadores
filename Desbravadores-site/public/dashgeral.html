@@ -30,12 +30,51 @@
 <body>
     <div class="header">
         <div class="conteiner">
-            
-                    <div class="dash">
-                        <div class="btns-dash" id="btnAquario">
-                            <canvas id="myChart"></canvas>
-                        </div>
+            <ul class="nav-bar">
+                <li>
+                    <div class="box">
+                        <a href="dashboard.html">inicio</a>
                     </div>
+                </li>
+                <li>
+                    <div class="box1">
+                        <a href="quiz.html">Quiz</a>
+                    </div>
+                </li>
+                <li>
+                    <div class="box2">
+                        <a href="conta.html">Conta</a>
+                    </div>
+                </li>
+                <li>
+                    <div class="box4">
+                        <a href="#">Estatísticas Gerais</a>
+                    </div>
+                </li>
+                <li>
+                    <div class="box3">
+                        <a href="index.html">Sair</a>
+                    </div>
+                </li>
+            </ul>
+            <div class="conteiner-graph">
+                <div class="dash">
+                    <div class="btns-dash" id="btnAquario">
+                        <canvas id="myChart"></canvas>
+                    </div>
+                    <div class="dado-graph">
+                        <span id="porcentGraph1"></span>
+                    </div>
+                </div>
+                <div class="dash2">
+                    <div class="btns-dash" id="btnAquario2">
+                        <canvas id="myChart"></canvas>
+                    </div>
+                </div>
+                <div class="dado-graph2">
+                    <span id="porcentGraph2"></span>
+                </div>
+            </div>
     </div>
     </div>
 </body>
@@ -46,7 +85,8 @@
 
     let proximaAtualizacao;
 
-    obterDadosGrafico(sessionStorage.ID_USUARIO);
+    obterDadosGrafico();
+    // obterDadosMaior();
 function obterDadosGrafico() {
 
 // alterarTitulo(idQuestionario)
@@ -122,14 +162,41 @@ console.log(resposta[0])
 console.log('----------------------------------------------')
 console.log('O gráfico será plotado com os respectivos valores:')
 console.log('Labels:')
-console.log(labels)
 console.log('Dados:')
-console.log(dados.datasets)
 console.log('----------------------------------------------')
 
 // Criando estrutura para plotar gráfico - config
 
 
 // Adicionando gráfico criado em div na tela
+}
+function obterDadosMaior() {
+
+let maior = ''
+
+if (proximaAtualizacao != undefined) {
+    clearTimeout(proximaAtualizacao);
+}
+fetch(`/dash/maior`, {
+    method: 'GET',
+    headers: {
+        "Content-Type": "application/json"
+    },   
+}).then(function (response) {
+    if (response.ok) {
+        response.json().then(function (resposta) {
+            console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+            console.log(resposta.clube)
+            let maior = resposta.clube
+            
+        });
+    } else {
+        console.error('Nenhum dado encontrado ou erro na API');
+    }
+})
+    .catch(function (error) {
+        console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+    });
+    porcentGraph1.innerHTML = (maior)
 }
 </script>

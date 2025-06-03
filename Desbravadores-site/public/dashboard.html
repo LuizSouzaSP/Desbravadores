@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pagina inicial | Aventura</title>
+    <title>Aventura | Pagina inicial</title>
     <link rel="stylesheet" href="styles/dashboard.css">
 </head>
 <body>
@@ -23,6 +23,11 @@
                 <li>
                     <div class="box2">
                         <a href="conta.html">Conta</a>
+                    </div>
+                </li>
+                <li>
+                    <div class="box4">
+                        <a href="dashgeral.html">Estatísticas Gerais</a>
                     </div>
                 </li>
                 <li>
@@ -70,6 +75,29 @@ obterIdade(sessionStorage.ID_USUARIO);
 function obterIdade(idusuario){
     fetch(`/idade/idadeResultado/${idusuario}`, {
     method: 'GET',
+    headers: {
+        "Content-Type": "application/json"
+    },   
+}).then(function (response) {
+    if (response.ok) {
+        response.json().then(function (resposta) {
+            console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+            console.log(resposta[0].idade)
+            cards(resposta)
+            pioneiro(resposta)
+        });
+    } else {
+        console.error('Nenhum dado encontrado ou erro na API');
+    }
+})
+    .catch(function (error) {
+        console.error(`Erro ao obter idade: ${error.message}`);
+    });
+
+}
+function mandarClasse(){
+        fetch(`/classe/classeResultado/${idusuario}`, {
+    method: 'POST',
     headers: {
         "Content-Type": "application/json"
     },   

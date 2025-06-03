@@ -88,6 +88,21 @@ a{
     position: relative;
     top: 1.3vh;
 }
+.box4 {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    height: 5vh;
+    width: 10vw;
+    background-color: #FDD500;
+    border-radius: 40px;
+
+    
+}
+.box4 a{
+    position: relative;
+    top: 1.3vh;
+}
 
 /* Classes */
 #cards {

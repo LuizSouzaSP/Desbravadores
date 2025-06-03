@@ -89,6 +89,21 @@ a{
     position: relative;
     top: 1.3vh;
 }
+.box4 {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    height: 5vh;
+    width: 10vw;
+    background-color: #FDD500;
+    border-radius: 40px;
+
+    
+}
+.box4 a{
+    position: relative;
+    top: 1.3vh;
+}
 /* DASH */
 .dash {
     width: 100%;
@@ -102,7 +117,7 @@ a{
     height: 60%;
     height: 50vh;
     justify-content: center;
-    background-color: aliceblue;
+    background-color: #0A3880;;
     border-radius: 20px;
     transition: 0.3s ease-in-out;
 }
@@ -115,7 +130,7 @@ a{
     display: flex;
     align-items: center;
     width: 100%;
-    color: aliceblue;
+    color: #FDD500;
     flex-direction: column;
     
 }
