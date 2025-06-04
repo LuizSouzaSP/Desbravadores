@@ -133,3 +133,28 @@ ON u.idusuario = qu.fkUsuario
 INNER JOIN questionario q
 ON q.idquestionario = qu.fkQuestionario
 WHERE u.idusuario = 1;
+
+INSERT INTO classe_usuario(fkClasse, fkUsuario)
+VALUES(1,1);
+
+SELECT c.nome Classe,
+count(c.nome) qtd
+FROM classe_usuario cs
+INNER JOIN classe c
+ON c.idClasse = cs.fkClasse
+INNER JOIN usuario u
+ON u.idusuario = cs.fkUsuario
+GROUP BY Classe;
+
+SELECT c.nome Classe,
+count(c.nome) qtd
+FROM classe_usuario cs
+INNER JOIN classe c
+ON c.idClasse = cs.fkClasse
+INNER JOIN usuario u
+ON u.idusuario = cs.fkUsuario
+GROUP BY Classe
+ORDER BY DESC
+LIMIT 1;
+
+-- database.executar(instrucao2)

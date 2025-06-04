@@ -21,6 +21,12 @@ body{
     transform: translateX(10vw) translateY(10vh);
     position: hidden;
 }
+.dash p{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    color: #FDD500;
+}
 .dash2 {
     height: 30vw;
     width: 30vw;
@@ -29,11 +35,28 @@ body{
     transform: translateX(15vw) translateY(10vh);
 }
 .dado-graph {
+    display: flex;
+    flex-direction: column;
     height: 6vw;
     width: 30vw;
     background-color: #0A3880;
     border-radius: 20px;
     transform: translateY(1vh);
+    align-items: center;
+    justify-content: center;
+    color: #FDD500;
+    font-size: 30px;
+    transition: 0.2s ease-in-out;
+}
+p {
+    margin: 0;
+    font-size: 16px;
+}
+span {
+    transition: 0.2s ease-in-out;
+}
+.dado-graph:hover span{
+    font-size: 40px;
 }
 .dado-graph2 {
     height: 6vw;
@@ -42,6 +65,7 @@ body{
     border-radius: 20px;
     transform: translateX(-15vw) translateY(71.3vh);
 }
+
 /* NAVBAR */
 .nav-bar{
     margin: 0;

@@ -3,14 +3,14 @@ var classeModel = require("../models/classeModel");
 
 function inserirClasse(req, res) {
     // variavel para recuperar os valores do arquivo dashboard
-    var idclasse = req.params.classe;
-    var idusuario = req.body.idusuarioServer;
+    var idClasse = req.body.idClasseServer;
+    var idusuario = req.params.idusuarioServer;
 
-    classeModel.inserirResultadosQuestionarioUsuario(idclasse, idusuario)
+    classeModel.inserirResultadosQuestionarioUsuario(idClasse, idusuario)
     .then(() => {
         if (resultado.length > 0) {
             res.status(200).json({
-                idclasse: idclasse,
+                idClasse: idClasse,
                 idQuestionario: idQuestionario
             })
             } else {

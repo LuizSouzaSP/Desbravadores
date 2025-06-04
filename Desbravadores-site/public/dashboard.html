@@ -69,7 +69,7 @@
 <script src="js/sessao.js"></script>
 <script>
 
-
+let idade = 0
 obterIdade(sessionStorage.ID_USUARIO);
 
 function obterIdade(idusuario){
@@ -84,7 +84,7 @@ function obterIdade(idusuario){
             console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
             console.log(resposta[0].idade)
             cards(resposta)
-            pioneiro(resposta)
+            
         });
     } else {
         console.error('Nenhum dado encontrado ou erro na API');
@@ -95,30 +95,7 @@ function obterIdade(idusuario){
     });
 
 }
-function mandarClasse(){
-        fetch(`/classe/classeResultado/${idusuario}`, {
-    method: 'POST',
-    headers: {
-        "Content-Type": "application/json"
-    },   
-}).then(function (response) {
-    if (response.ok) {
-        response.json().then(function (resposta) {
-            console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-            console.log(resposta[0].idade)
-            cards(resposta)
-            pioneiro(resposta)
-        });
-    } else {
-        console.error('Nenhum dado encontrado ou erro na API');
-    }
-})
-    .catch(function (error) {
-        console.error(`Erro ao obter idade: ${error.message}`);
-    });
 
-}
-let idade = 0
 
 function cards(resultado){
     idade = resultado[0].idade;

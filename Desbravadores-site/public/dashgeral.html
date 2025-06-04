@@ -63,6 +63,7 @@
                         <canvas id="myChart"></canvas>
                     </div>
                     <div class="dado-graph">
+                        <p>Clube com mais pessoas cadastradas!</p>
                         <span id="porcentGraph1"></span>
                     </div>
                 </div>
@@ -86,7 +87,7 @@
     let proximaAtualizacao;
 
     obterDadosGrafico();
-    // obterDadosMaior();
+    obterDadosMaior();
 function obterDadosGrafico() {
 
 // alterarTitulo(idQuestionario)
@@ -133,7 +134,7 @@ const qtd = resposta.map(item => item.qtd)
 const ctx = document.getElementById('myChart');
 
   new Chart(ctx, {
-    type: 'pie',
+    type: 'doughnut',
     data: {
       labels: clube,
       datasets: [{
@@ -171,9 +172,7 @@ console.log('----------------------------------------------')
 // Adicionando gráfico criado em div na tela
 }
 function obterDadosMaior() {
-
-let maior = ''
-
+var maior = ''
 if (proximaAtualizacao != undefined) {
     clearTimeout(proximaAtualizacao);
 }
@@ -187,8 +186,9 @@ fetch(`/dash/maior`, {
         response.json().then(function (resposta) {
             console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
             console.log(resposta.clube)
-            let maior = resposta.clube
-            
+            maior = resposta.map(item => item.clube)
+            console.log(maior)
+            porcentGraph1.innerHTML = (maior)
         });
     } else {
         console.error('Nenhum dado encontrado ou erro na API');
@@ -197,6 +197,6 @@ fetch(`/dash/maior`, {
     .catch(function (error) {
         console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
     });
-    porcentGraph1.innerHTML = (maior)
+    
 }
 </script>
