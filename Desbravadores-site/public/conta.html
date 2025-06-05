@@ -63,12 +63,42 @@
                         <h3 class="nomeUsuario">Olá, <span id="b_usuario">usuário</span>!</h3>
                         <p class="p_classe">Você é da classe de <span id="classe"></span></p>
                     </div>
-                    <div class="dashquestionario"><span>Dashboard do questionario</span></div>
-                    <div class="dash">
-                        <div class="btns-dash" id="GraphQuestionario">
-                            <canvas id="myChart"></canvas>
+                    <div class="dash_conteiner">
+
+                        <div class="dashquestionario"><span>Dashboard do questionario</span></div>
+                        <div class="dash">
+                            <div class="btns-dash" id="GraphQuestionario">
+                                <canvas id="myChart"></canvas>
+                            </div>
+                            <div class="kpiQuiz">
+                                <div class="certas">
+                                    <span id="kpi_quizcerta"></span>
+                                </div>
+                                <div class="erradas">
+                                    <span id="kpi_quizerrada"></span>
+                                </div>
+                            </div>
                         </div>
+                        <div class="conteiner-graph">
+                            <div class="dash2">
+                                <div class="btns-dash" id="btnAquario">
+                                    <canvas id="myChart2"></canvas>
                     </div>
+                    <div class="dado-graph">
+                        <p>Clube com mais pessoas cadastradas!</p>
+                        <span id="porcentGraph1"></span>
+                    </div>
+                </div>
+                <div class="dash3">
+                    <div class="btns-dash" id="btnAquario2">
+                        <canvas id="myChart3"></canvas>
+                    </div>
+                </div>
+                <div class="dado-graph3">
+                    <span id="porcentGraph2"></span>
+                </div>
+            </div>
+            </div>
     </div>
     </div>
 
@@ -83,6 +113,8 @@
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO
     
     obterIdade(sessionStorage.ID_USUARIO);
+    obterDadosGrafico2();
+    obterDadosMaior();
 
     let proximaAtualizacao;
     let idade = 0;
@@ -107,7 +139,9 @@ fetch(`/medidas/resultado/${idusuario}`, {
             console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
             console.log(resposta[0].Certas)
             console.log(resposta[0].Erradas)
-            
+            kpi_quizcerta.innerHTML = `${resposta[0].Certas * 10}%`
+            kpi_quizerrada.innerHTML = `${resposta[0].Erradas * 10}%`
+
 
             plotarGrafico(resposta);
             
@@ -225,5 +259,111 @@ function cards(resultado){
         Classes = 'Amigo, Companheiro, Pesquisador, Pioneiro, Excursionista, Guia'
         classe.innerHTML = (Classes);
     }
+}
+function obterDadosGrafico2() {
+
+// alterarTitulo(idQuestionario)
+
+fetch(`/dash/buscar`, {
+    method: 'GET',
+    headers: {
+        "Content-Type": "application/json"
+    },   
+}).then(function (response) {
+    if (response.ok) {
+        response.json().then(function (resposta) {
+            console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+            console.log(resposta.clube)
+            console.log(resposta.qtd)
+            
+
+            plotarGrafico2(resposta);
+            
+        });
+    } else {
+        console.error('Nenhum dado encontrado ou erro na API');
+    }
+})
+    .catch(function (error) {
+        console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+    });
+}
+function plotarGrafico2(resposta) {
+
+console.log('iniciando plotagem do gráfico...');
+
+// Criando estrutura para plotar gráfico - labels
+const clube = resposta.map(item => item.clube)
+const qtd = resposta.map(item => item.qtd)
+
+
+
+
+// Criando estrutura para plotar gráfico - dados
+const ctx = document.getElementById('myChart2');
+
+  new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+      labels: clube,
+      datasets: [{
+        label: 'clubes',
+        data: qtd,
+        borderWidth: 1,
+        backgroundColor: ['red', 'green', 'orange', 'blue', 'purple', 'gray', 'yellow', 'white', 'black', 'pink', 'violet', 'cyan', 'burlywood', 'brown', 'chartreuse', 'darkgray', 'darksalmon', 'olive', 'maroon']
+      }
+    ]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+
+console.log('----------------------------------------------')
+console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
+console.log(resposta[0])
+
+// Inserindo valores recebidos em estrutura para plotar o gráfico
+
+console.log('----------------------------------------------')
+console.log('O gráfico será plotado com os respectivos valores:')
+console.log('Labels:')
+console.log('Dados:')
+console.log('----------------------------------------------')
+
+// Criando estrutura para plotar gráfico - config
+
+
+// Adicionando gráfico criado em div na tela
+}
+function obterDadosMaior() {
+var maior = ''
+
+fetch(`/dash/maior`, {
+    method: 'GET',
+    headers: {
+        "Content-Type": "application/json"
+    },   
+}).then(function (response) {
+    if (response.ok) {
+        response.json().then(function (resposta) {
+            console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+            console.log(resposta.clube)
+            maior = resposta.map(item => item.clube)
+            console.log(maior)
+            porcentGraph1.innerHTML = (maior)
+        });
+    } else {
+        console.error('Nenhum dado encontrado ou erro na API');
+    }
+})
+    .catch(function (error) {
+        console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+    });
+    
 }
 </script>

@@ -1,9 +1,9 @@
 var database = require("../database/config");
 
-function inserirClasse(idClassse, idusuario) {
-
+function inserirClasse(idClasse, idusuario) {
+    
     var instrucaoSql = `INSERT INTO classe_usuario(fkClasse, fkUsuario)
-    VALUES(${idClassse}, ${idusuario})`;
+    VALUES('${idClasse}', '${idusuario}');`;
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);

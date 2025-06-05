@@ -11,7 +11,7 @@ function inserirClasse(req, res) {
         if (resultado.length > 0) {
             res.status(200).json({
                 idClasse: idClasse,
-                idQuestionario: idQuestionario
+                idusuario: idusuario
             })
             } else {
                 res.status(204).send("Nenhum resultado encontrado!")

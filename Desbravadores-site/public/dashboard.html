@@ -68,7 +68,7 @@
 </html>
 <script src="js/sessao.js"></script>
 <script>
-
+  let idadeParaClasse = [];
 let idade = 0
 obterIdade(sessionStorage.ID_USUARIO);
 
@@ -84,7 +84,8 @@ function obterIdade(idusuario){
             console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
             console.log(resposta[0].idade)
             cards(resposta)
-            
+            idadeParaClasse.push(resposta.map(item => item.idade))
+            console.log(idadeParaClasse[0])
         });
     } else {
         console.error('Nenhum dado encontrado ou erro na API');
@@ -195,6 +196,46 @@ function cards(resultado){
     idGuia.style.cursor = "pointer";
     }
 }
-
+const idadeClasse = idadeParaClasse
+console.log(idadeParaClasse[0])
+let idUsuario = sessionStorage.ID_USUARIO
+inserirClasse(sessionStorage.ID_USUARIO)
+function inserirClasse(idusuario){
+    let idClasse = 0
+    if(idadeParaClasse == 10){
+        idClasse = 1
+    } else if (idadeParaClasse == 11){
+        idClasse = 2
+    } else if (idadeParaClasse == 12){
+        idClasse = 3
+    } else if (idadeParaClasse == 13){
+        idClasse = 4
+    } else if (idadeParaClasse == 14){
+        idClasse = 5
+    } else if (idadeParaClasse == 15){
+        idClasse = 6
+    }
+    fetch(`/classe/resultado/${idusuario}`, {
+    method: 'POST',
+    headers: {
+        "Content-Type": "application/json"
+    }, 
+    body: JSON.stringify({
+        idClasseServer: idClasse,
+        idusuarioServer: idUsuario
+      }),  
+}).then(response => {
+        if(!response.ok){
+            throw new Error('Erro na resposta do servidor:' + response.status)
+            
+        }
+        if (response.status === 204) {
+            console.log(response)
+            return {}
+        }
+        return response.json();
+    })
+    
+}
 console.log(cards())
 </script>
