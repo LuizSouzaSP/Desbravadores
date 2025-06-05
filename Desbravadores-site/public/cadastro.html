@@ -39,6 +39,7 @@
                         <div id="validar_senha"></div>
                         <p>Digite novamente a senha:</p>
                         <input type="password" id="ipt_senhanovamente" placeholder="*********">
+                        <div id="confirmar" style="color: red;"></div>
                         <p>Informe sua data de nascimento: </p>
                         <input type="date" id="ipt_dtNasc">
                         <p>Qual clube que você frequenta?</p>
@@ -85,10 +86,9 @@
 <script>
 
   function cadastrar() {
-    // aguardar();
 
-    //Recupere o valor da nova input pelo nome do id
-    // Agora vá para o método fetch logo abaixo
+
+
     var nomeVar = ipt_nome.value;
     var sobrenomeVar = ipt_sobrenome.value;
     var emailVar = ipt_email.value;
@@ -101,7 +101,8 @@
     let arroba = emailVar.indexOf('@');
     let tamanhoSenha = senhaVar.length
 
-    // Verificando se há algum campo em branco
+
+
     if (
       nomeVar == "" ||
       emailVar == "" ||
@@ -112,36 +113,76 @@
     ) {
       cardErro.style.display = "block";
       mensagem_erro.innerHTML =
-        "(Mensagem de erro para todos os campos em branco)";
+        "Preencha todos os campos abaixo";
 
       finalizarAguardar();
       return false;
     } else {
       setInterval(sumirMensagem, 5000);
+    } if(com == -1 || arroba == -1){
+            cardErro.style.display = "block";
+      mensagem_erro.innerHTML =
+        "Seu email deve conter um @ e finalizar com '.com'";
+      finalizarAguardar();
+      return false;
+    } else {
+      setInterval(sumirMensagem, 5000);
+    }if(tamanhoSenha < 8){
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML =
+        "Sua senha deve ter no mínimo 8 caracteres!";
+      finalizarAguardar();
+      return false;
+    } else {
+      setInterval(sumirMensagem, 5000);
+    } if(!/[!@#$%&*]/.test(senhaVar)){
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML =
+        "Sua senha deve ter pelo menos um caractere especial!";
+      finalizarAguardar();
+      return false;
+    } else {
+      setInterval(sumirMensagem, 5000);
+    } if(!/[A-Z]/.test(senhaVar)){
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML =
+        "Sua senha deve ter pelo menos uma letra maiúscula!";
+      finalizarAguardar();
+      return false;
+    } else {
+      setInterval(sumirMensagem, 5000);
+    } if(!/[a-z]/.test(senhaVar)){
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML =
+        "Sua senha deve ter pelo menos uma letra minúscula!";
+      finalizarAguardar();
+      return false;
+    } else {
+      setInterval(sumirMensagem, 5000);
+    } if(!/[0-9]/.test(senhaVar)){
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML =
+        "Sua senha deve ter pelo menos um número!";
+      finalizarAguardar();
+      return false;
+    } else {
+      setInterval(sumirMensagem, 5000);
+    } if(senhaVar != confirmacaoSenhaVar){
+      confirmar.innerHTML =
+        "As senhas não são iguais!";
+      finalizarAguardar();
+      return false;
     }
 
-    // Verificando se o código de ativação é de alguma empresa cadastrada
-    // for (let i = 0; i < listaEmpresasCadastradas.length; i++) {
-    //   if (listaEmpresasCadastradas[i].codigo_ativacao == codigoVar) {
-    //     idEmpresaVincular = listaEmpresasCadastradas[i].id
-    //     console.log("Código de ativação válido.");
-    //     break;
-    //   } else {
-    //     cardErro.style.display = "block";
-    //     mensagem_erro.innerHTML = "(Mensagem de erro para código inválido)";
-    //     finalizarAguardar();
-    //   }
-    // }
 
-    // Enviando o valor da nova input
+
     fetch("/usuarios/cadastrar", {
       method: "POST", 
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        // crie um atributo que recebe o valor recuperado aqui
-        // Agora vá para o arquivo routes/usuario.js
+
         nomeServer: nomeVar,
         sobrenomeServer: sobrenomeVar,
         emailServer: emailVar,
@@ -177,25 +218,6 @@
     return false;
   }
 
-  // Listando empresas cadastradas 
-  // function listar() {
-  //   fetch("/empresas/listar", {
-  //     method: "GET",
-  //   })
-  //     .then(function (resposta) {
-  //       resposta.json().then((empresas) => {
-  //         empresas.forEach((empresa) => {
-  //           listaEmpresasCadastradas.push(empresa);
-
-  //           console.log("listaEmpresasCadastradas")
-  //           console.log(listaEmpresasCadastradas[0].codigo_ativacao)
-  //         });
-  //       });
-  //     })
-  //     .catch(function (resposta) {
-  //       console.log(`#ERRO: ${resposta}`);
-  //     });
-  // }
 
   function sumirMensagem() {
     cardErro.style.display = "none";

@@ -56,30 +56,6 @@ create table  questoes (
   constraint fkquestionario_questao foreign key (fkquestionario) references questionario (idquestionario)
 );
 
--- -----------------------------------------------------
--- Tabela classes
--- -----------------------------------------------------
-
-create table classes (
-idClasse int primary key auto_increment,
-nome varchar(15) not null,
-idade int not null
-);
-
-create table classe_usuario(
-fkClasse int not null,
-fkUsuario int not null,
-constraint fk_Classe foreign key (fkClasse) references classes(idClasse),
-constraint fk_Usuario foreign key (fkUsuario) references usuario(idusuario)
-);
-
-create table requisitos (
-idRequisito int auto_increment,
-fkclasse int,
-primary key (idRequisito, fkclasse),
-constraint fkclasse foreign key (fkclasse) references classes(idClasse)
-);
-
 alter table usuario modify dtCriacao timestamp default current_timestamp;
 
 insert into questionario(idquestionario) 
@@ -90,14 +66,6 @@ insert into usuario(nome, sobrenome, dtNascimento, email, senha, clube)
 values('nome', 'nome', '2006-05-21', 'admin', 'admin', 'clube');
 
 select * from usuario;
-
-insert into classes(nome, idade)
-values('Amigo', 10),
-('Companheiro', 11),
-('Pesquisador', 12),
-('Pioneiro', 13),
-('Excursionista', 14),
-('Guia', 15);
 
 insert into questoes(idquestoes, fkquestionario)
 values(1,1),
@@ -110,51 +78,3 @@ values(1,1),
 (8,1),
 (9,1),
 (10,1);
-
-
-
-
-
-
-select * FROM questionario_usuario;
-select (year(current_date()) - year(dtNascimento))
-from usuario;
-
-select * from questionario_usuario;
-
-
-SELECT u.nome AS Usuario,
-q.idquestionario AS Questionario,
-qu.resultado AS Certas,
-(((SELECT resultado FROM questionario_usuario WHERE fkUsuario = 1) - (SELECT count(*) FROM questoes)) * -1) Erradas
-FROM questionario_usuario qu
-INNER JOIN usuario u
-ON u.idusuario = qu.fkUsuario
-INNER JOIN questionario q
-ON q.idquestionario = qu.fkQuestionario
-WHERE u.idusuario = 1;
-
-INSERT INTO classe_usuario(fkClasse, fkUsuario)
-VALUES(1,1);
-
-SELECT c.nome Classe,
-count(c.nome) qtd
-FROM classe_usuario cs
-INNER JOIN classe c
-ON c.idClasse = cs.fkClasse
-INNER JOIN usuario u
-ON u.idusuario = cs.fkUsuario
-GROUP BY Classe;
-
-SELECT c.nome Classe,
-count(c.nome) qtd
-FROM classe_usuario cs
-INNER JOIN classe c
-ON c.idClasse = cs.fkClasse
-INNER JOIN usuario u
-ON u.idusuario = cs.fkUsuario
-GROUP BY Classe
-ORDER BY DESC
-LIMIT 1;
-
--- database.executar(instrucao2)

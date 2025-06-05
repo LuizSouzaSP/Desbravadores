@@ -27,11 +27,6 @@
                     </div>
                 </li>
                 <li>
-                    <div class="box4">
-                        <a href="dashgeral.html">Estatísticas Gerais</a>
-                    </div>
-                </li>
-                <li>
                     <div class="box3">
                         <a href="index.html">Sair</a>
                     </div>
@@ -401,9 +396,6 @@
 
             <div id="botoes" class="flex-colunar padding-8">
                 <button onclick="submeter()" id="btnSubmeter">Submeter resposta</button>
-                <!-- <button onclick="avancar()" id="btnProx" disabled>Avançar para próxima questão</button> -->
-                <button onclick="finalizar()" id="btnConcluir" disabled>Finalizar Quiz</button>
-                <!-- <button onclick="tentarNovamente()" id="btnTentarNovamente" disabled>Tentar novamente</button> -->
                 </div>
             </div>
             </div>
@@ -416,7 +408,6 @@
 
 </html>
 <script src="js/sessao.js"></script>
-<script src="js/dadosQuiz.js"></script>
 <script>
 
     var idusuario = sessionStorage.ID_USUARIO;
@@ -447,9 +438,6 @@
     let tentativaIncorreta = 0
     let erradas = 0
     let pontuacao = 0
-    // let quantidadeDeQuestoes = listaDeQuestoes.length
-    // let contadorImagem = 0
-    // let isUltima = numeroDaQuestaoAtual == quantidadeDeQuestoes-1 ? true : false
 
     function onloadEsconder() {
         document.getElementById('pontuacao').style.display = "none"
@@ -462,27 +450,23 @@
         document.getElementById('jogo').style.display = "flex"
         document.getElementById('btnIniciarQuiz').style.display = "none"
 
-        // document.getElementById('qtdQuestoes').innerHTML = quantidadeDeQuestoes
 
-        // preencherHTMLcomQuestaoAtual(0)
 
         btnSubmeter.disabled = false
-        // btnProx.disabled = true
-        // btnConcluir.disabled = true
-        // btnTentarNovamente.disabled = true
+
     }
 
     function submeter() {
-        const pergunta1 = document.getElementsByName("pergunta1"); // recupera alternativas no html
-        const pergunta2 = document.getElementsByName("pergunta2"); // recupera alternativas no html
-        const pergunta3 = document.getElementsByName("pergunta3"); // recupera alternativas no html
-        const pergunta4 = document.getElementsByName("pergunta4"); // recupera alternativas no html
-        const pergunta5 = document.getElementsByName("pergunta5"); // recupera alternativas no html
-        const pergunta6 = document.getElementsByName("pergunta6"); // recupera alternativas no html
-        const pergunta7 = document.getElementsByName("pergunta7"); // recupera alternativas no html
-        const pergunta8 = document.getElementsByName("pergunta8"); // recupera alternativas no html
-        const pergunta9 = document.getElementsByName("pergunta9"); // recupera alternativas no html
-        const pergunta10 = document.getElementsByName("pergunta10"); // recupera alternativas no html
+        const pergunta1 = document.getElementsByName("pergunta1"); 
+        const pergunta2 = document.getElementsByName("pergunta2"); 
+        const pergunta3 = document.getElementsByName("pergunta3"); 
+        const pergunta4 = document.getElementsByName("pergunta4"); 
+        const pergunta5 = document.getElementsByName("pergunta5"); 
+        const pergunta6 = document.getElementsByName("pergunta6"); 
+        const pergunta7 = document.getElementsByName("pergunta7"); 
+        const pergunta8 = document.getElementsByName("pergunta8"); 
+        const pergunta9 = document.getElementsByName("pergunta9"); 
+        const pergunta10 = document.getElementsByName("pergunta10"); 
 
         let hasChecked = false
         for (let i = 0; i < pergunta1.length; i++) {
@@ -559,8 +543,7 @@
     }
 
     function checarResposta() {
-        // const questaoAtual = listaDeQuestoes[numeroDaQuestaoAtual] // questão atual 
-        // const respostaQuestaoAtual = questaoAtual.alternativaCorreta // qual é a resposta correta da questão atual
+
 
         const pergunta1 = document.querySelector("input[name='pergunta1']:checked"); // recupera alternativas no html
         const pergunta2 = document.querySelector("input[name='pergunta2']:checked"); // recupera alternativas no html
@@ -570,8 +553,8 @@
         const pergunta6 = document.querySelector("input[name='pergunta6']:checked"); // recupera alternativas no html
         const pergunta7 = document.querySelector("input[name='pergunta7']:checked"); // recupera alternativas no html
         const pergunta8 = document.querySelector("input[name='pergunta8']:checked"); // recupera alternativas no html
-        const pergunta9 = document.querySelector("input[name='pergunta9']:checked"); // recupera alternativas no html
-        const pergunta10 = document.querySelector("input[name='pergunta10']:checked"); // recupera alternativas no html
+        const pergunta9 = document.querySelector("input[name='pergunta9']:checked"); 
+        const pergunta10 = document.querySelector("input[name='pergunta10']:checked"); 
         
         if(pergunta1.value === "alternativaB"){
             resultados.pergunta1++
@@ -656,12 +639,7 @@
         })
     }
 
-    // function desmarcarRadioButtons() {
-    //     const options = document.getElementsByName("option");
-    //     for (let i = 0; i < options.length; i++) {
-    //         options[i].checked = false;
-    //     }
-    // }
+
 
     function finalizarJogo() {
             let textoParaMensagemFinal = null
@@ -669,14 +647,7 @@
         let questoes = resultados.length
         const porcentagemFinalDeAcertos = pontuacao
 
-        // for(let i = 1;i <= 10;i++){
-        //     const percorrer = `pergunta${i}`
-        //     if(resultados[percorrer] == 1){
-        //         certas++
-        //     } else {
-        //         erradas++
-        //     }
-        // }
+
 
         console.log(`São ${pontuacao} respostas certas`)
 
@@ -705,10 +676,9 @@
         spanErradas.innerHTML = `${erradas}`
         var resultado = pontuacao
 
-        // btnProx.disabled = true
+
         btnSubmeter.disabled = true
-        // btnConcluir.disabled = true
-        // btnTentarNovamente.disabled = fals
+
         fetch(`http://localhost:3333/questao/questionario/1`, {
         method: 'POST',
         headers: {

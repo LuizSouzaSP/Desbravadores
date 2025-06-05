@@ -19,14 +19,13 @@
         href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
 
-    <!-- scripts do Chart.js - 2022-1 -->
+
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-    <!--FONT AWESOME-->
-    <!-- <script src="https://kit.fontawesome.com/9f7414eb10.js" crossorigin="anonymous"></script> -->
+    
 </head>
 
-<!-- <body onload=" atualizarFeed()"> -->
+
 
 <body>
     <div class="header">
@@ -48,11 +47,6 @@
                         </div>
                     </li>
                     <li>
-                    <div class="box4">
-                        <a href="dashgeral.html">Estatísticas Gerais</a>
-                    </div>
-                    </li>
-                    <li>
                     <div class="box3">
                         <a href="index.html">Sair</a>
                     </div>
@@ -60,7 +54,7 @@
                 </ul>
                 <div class="usuario">
                     <div class="hello">
-                        <h3 class="nomeUsuario">Olá, <span id="b_usuario">usuário</span>!</h3>
+                        <h3 class="nomeUsuario">Olá, <span id="b_usuario">usuário</span> <span id="b_sobrenome"> </span>!</h3>
                         <p class="p_classe">Você é da classe de <span id="classe"></span></p>
                     </div>
                     <div class="dash_conteiner">
@@ -89,15 +83,6 @@
                         <span id="porcentGraph1"></span>
                     </div>
                 </div>
-                <div class="dash3">
-                    <div class="btns-dash" id="btnAquario2">
-                        <canvas id="myChart3"></canvas>
-                    </div>
-                </div>
-                <div class="dado-graph3">
-                    <span id="porcentGraph2"></span>
-                </div>
-            </div>
             </div>
     </div>
     </div>
@@ -108,9 +93,10 @@
 </html>
 
 <script>
-    Questionario;
+
 
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO
+    b_sobrenome.innerHTML = sessionStorage.SOBRENOME
     
     obterIdade(sessionStorage.ID_USUARIO);
     obterDadosGrafico2();
@@ -123,7 +109,7 @@
     obterDadosGrafico(sessionStorage.ID_USUARIO);
 function obterDadosGrafico(idusuario) {
 
-// alterarTitulo(idQuestionario)
+
 
 if (proximaAtualizacao != undefined) {
     clearTimeout(proximaAtualizacao);
@@ -158,12 +144,12 @@ function plotarGrafico(resultado) {
 
 console.log('iniciando plotagem do gráfico...');
 
-// Criando estrutura para plotar gráfico - labels
+
 const idusuairo = sessionStorage.getItem('ID_USUARIO');
 const dados = [resultado[0].Certas, resultado[0].Erradas]
 
 
-// Criando estrutura para plotar gráfico - dados
+
 const ctx = document.getElementById('myChart');
 
   new Chart(ctx, {
@@ -191,7 +177,7 @@ console.log('----------------------------------------------')
 console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
 console.log(resultado[0])
 
-// Inserindo valores recebidos em estrutura para plotar o gráfico
+
 
 console.log('----------------------------------------------')
 console.log('O gráfico será plotado com os respectivos valores:')
@@ -199,10 +185,10 @@ console.log('Dados:')
 console.log(dados.datasets)
 console.log('----------------------------------------------')
 
-// Criando estrutura para plotar gráfico - config
 
 
-// Adicionando gráfico criado em div na tela
+
+
 }
 function obterIdade(idusuario){
     fetch(`/idade/idadeResultado/${idusuario}`, {
@@ -262,7 +248,6 @@ function cards(resultado){
 }
 function obterDadosGrafico2() {
 
-// alterarTitulo(idQuestionario)
 
 fetch(`/dash/buscar`, {
     method: 'GET',

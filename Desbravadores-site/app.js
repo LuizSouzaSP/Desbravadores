@@ -21,7 +21,7 @@ var dashRouter = require("./src/routes/dash");
 var questaoRouter = require("./src/routes/questao");
 var medidasRouter = require("./src/routes/medidas");
 var idadeRouter = require("./src/routes/idade");
-var classeRouter = require("./src/routes/classe");
+
 
 
 app.use(express.json());
@@ -36,7 +36,7 @@ app.use("/dash", dashRouter);
 app.use('/questao', questaoRouter);
 app.use("/medidas", medidasRouter);
 app.use("/idade", idadeRouter);
-app.use("/classe", classeRouter);
+
 
 app.listen(PORTA_APP, function () {
     console.log(`

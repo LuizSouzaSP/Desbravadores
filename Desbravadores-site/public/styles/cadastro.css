@@ -60,13 +60,16 @@ a{
 .card_erro {
   display: none;
   background-color: #fff;
-  color: black;
+  color: #0A3880;
   width: 230px;
   position: fixed;
   border-radius: 4px;
   border: #ED145B 3px solid;
+  border-radius: 20px;
   padding: 10px;
   margin-right: 10%;
+  transform: translateX(-10vw) translateY(4.5vh);
+  background-color: #FDD500;
 }
 
 .card_erro #mensagem_erro{

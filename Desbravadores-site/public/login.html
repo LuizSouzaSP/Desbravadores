@@ -40,7 +40,7 @@
                     </div>
 
                 <div id="div_aguardar" class="loading-div">
-                    <img src="./assets/circle-loading.gif" id="loading-gif">
+                    <img src="./assets/loading.gif" id="loading-gif">
                 </div>
 
                 <div id="div_erros_login"></div>
@@ -94,10 +94,9 @@
                     sessionStorage.EMAIL_USUARIO = json.email;
                     sessionStorage.NOME_USUARIO = json.nome;
                     sessionStorage.ID_USUARIO = json.idusuario;
-                    console.log(json.idusuairo)
-                    // sessionStorage.QUESTOES = json.questoes;
-                    
-                    // sessionStorage.AQUARIOS = JSON.stringify(json.aquarios)
+                    sessionStorage.SOBRENOME = json.sobrenome;
+                    console.log(json.idusuario)
+
 
                     setTimeout(function () {
                         console.log("Redirecionando para dashboard.html");
