@@ -34,7 +34,7 @@ body{
 }
 .nav-bar img{
     margin-right: 30vw;
-    width: 3vw;
+    width: 4.5vw;
 }
 .nav-bar .login a{
     justify-content: center;
@@ -457,9 +457,9 @@ section .conteiner-inicial{ /* conteiner do video */
 /* FOOTER */
 
 .footer {
-    height: 30vh;
+    height: 20vh;
     width: 100%;
-    background-color: #0A3880;
+    background-color: #1850ac;
     display: flex;
 
 }
@@ -472,7 +472,7 @@ section .conteiner-inicial{ /* conteiner do video */
     color: aliceblue;
 }
 .footer img{
-    width: 3vw;
+    width: 4.5vw;
 }
 .box-nav-ul {
     list-style-type: none;
